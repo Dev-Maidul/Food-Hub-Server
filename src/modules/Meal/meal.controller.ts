@@ -124,11 +124,46 @@ const updateMeal = async (req: Request, res: Response) => {
   }
 };
 
+const deleteMeal = async (req: Request, res: Response) => {
+  try {
+    const userId = (req.user as any).id;
+
+    // 1️⃣ Get provider profile
+    const providerProfile = await prisma.providerProfile.findUnique({
+      where: { userId },
+    });
+
+    if (!providerProfile) {
+      throw new Error("Provider profile not found");
+    }
+
+    // 2️⃣ Call service
+    await MealService.deleteMeal(
+      providerProfile.id,
+      req.params.id as string
+    );
+
+    sendResponse(res, {
+      statusCode: 200,
+      success: true,
+      message: "Meal deleted successfully",
+    });
+  } catch (error: any) {
+    console.error("DELETE MEAL ERROR:", error);
+
+    sendResponse(res, {
+      statusCode: 500,
+      success: false,
+      message: error?.message || "Failed to delete meal",
+    });
+  }
+};
 
 
 export const MealController = {
   createMeal,
   updateMeal,
+  deleteMeal,
   getAllMeals,
   getMealBySlug
 };

@@ -187,7 +187,32 @@ const updateMeal = async (
 
   return updatedMeal;
 };
+const deleteMeal = async (providerId: string, mealId: string) => {
+  // 1️⃣ Check meal exists
+  const existingMeal = await prisma.meal.findUnique({
+    where: { id: mealId },
+  });
 
+  if (!existingMeal) {
+    throw new Error("Meal not found");
+  }
+
+  // 2️⃣ Check ownership
+  if (existingMeal.providerId !== providerId) {
+    throw new Error("You are not authorized to delete this meal");
+  }
+
+  // 3️⃣ Soft delete
+  const deletedMeal = await prisma.meal.update({
+    where: { id: mealId },
+    data: {
+      isDeleted: true,
+      isAvailable: false,
+    },
+  });
+
+  return deletedMeal;
+};
 
 
 
@@ -195,5 +220,6 @@ export const MealService = {
   createMeal,
     updateMeal,
     getAllMeals,
-    getMealBySlug
+    getMealBySlug,
+    deleteMeal
 };
