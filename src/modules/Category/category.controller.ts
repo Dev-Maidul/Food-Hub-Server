@@ -4,7 +4,8 @@ import sendResponse from "../../utils/sendResponse";
 
 
 const createCategory = async (req: Request, res: Response) => {
-  const result = await CategoryService.createCategory(req.body);
+  try {
+    const result = await CategoryService.createCategory(req.body);
 
   sendResponse(res, {
     statusCode: 201,
@@ -12,10 +13,19 @@ const createCategory = async (req: Request, res: Response) => {
     message: "Category created successfully",
     data: result,
   });
+  } catch (error) {
+    sendResponse(res, {
+      statusCode: 500,
+      success: false,
+      message: "Failed to create category",
+      data: error,
+    });
+  }
 };
 
 const getAllCategories = async (req: Request, res: Response) => {
-  const result = await CategoryService.getAllCategories();
+  try {
+    const result = await CategoryService.getAllCategories();
 
   sendResponse(res, {
     statusCode: 200,
@@ -23,10 +33,19 @@ const getAllCategories = async (req: Request, res: Response) => {
     message: "Categories retrieved successfully",
     data: result,
   });
+  } catch (error) {
+    sendResponse(res, {
+      statusCode: 500,
+      success: false,
+      message: "Failed to retrieve categories",
+      data: error,
+    });
+  }
 };
 
 const updateCategory = async (req: Request, res: Response) => {
-  const result = await CategoryService.updateCategory(
+  try {
+    const result = await CategoryService.updateCategory(
     req.params.id as string,
     req.body
   );
@@ -37,16 +56,33 @@ const updateCategory = async (req: Request, res: Response) => {
     message: "Category updated successfully",
     data: result,
   });
+  } catch (error) {
+    sendResponse(res, {
+      statusCode: 500,
+      success: false,
+      message: "Failed to update category",
+      data: error,
+    });
+  }
 };
 
 const deleteCategory = async (req: Request, res: Response) => {
-  await CategoryService.deleteCategory(req.params.id as string);
+ try {
+     await CategoryService.deleteCategory(req.params.id as string);
 
   sendResponse(res, {
     statusCode: 200,
     success: true,
     message: "Category deleted successfully",
   });
+ } catch (error) {
+    sendResponse(res, {
+      statusCode: 500,
+      success: false,
+      message: "Failed to delete category",
+      data: error,
+    });
+ }
 };
 
 export const CategoryController = {
