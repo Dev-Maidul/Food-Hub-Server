@@ -1,17 +1,47 @@
+import { Role } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { TCreateUser } from "./user.validation";
 
 export const secret = "lsdngkdsbfgbkdf";
 
-const createUserIntoDB = async (payload: any) => {
-  const hashPassword = await bcrypt.hash(payload.password, 8);
+
+const createUserIntoDB = async (payload: TCreateUser) => {
+  const { name, email, password, role } = payload;
+
+  if (!email || !password) {
+    throw new Error("Email and password are required");
+  }
+
+  // Check existing user
+  const existingUser = await prisma.user.findUnique({
+    where: { email },
+  });
+
+  if (existingUser) {
+    throw new Error("User already exists");
+  }
+
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  const userData: any = {
+    email,
+    password: hashedPassword,
+    role: role || "CUSTOMER", // Use string literal to avoid enum issues
+  };
+
+  if (name) {
+    userData.name = name;
+  }
 
   const result = await prisma.user.create({
-    data: { ...payload, password: hashPassword },
+    data: userData,
   });
-  const { password, ...newResult } = result;
-  return newResult;
+
+  const { password: _, ...safeUser } = result;
+
+  return safeUser;
 };
 
 const loginUserIntoDB = async (payload: any) => {

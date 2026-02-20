@@ -5,6 +5,7 @@ import sendResponse from "../../utils/sendResponse";
 
 const createUser = async (req: Request, res: Response) => {
   try {
+    // console.log(req.body)
     const result = await AuthService.createUserIntoDB(req.body);
 
     sendResponse(res, {
@@ -15,8 +16,8 @@ const createUser = async (req: Request, res: Response) => {
     });
   } catch (error) {
     sendResponse(res, {
-      statusCode: 201,
-      success: true,
+      statusCode: 500,
+      success: false,
       message: "Something went wrong!!",
       data: error,
     });

@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  output = "../generated/prisma"
 }
 
 datasource db {
@@ -34,31 +35,32 @@ enum OrderStatus {
 //////////////////////////////////////////////////////
 
 model User {
-  id               String     @id @default(cuid()) @map("id")
+  id               String     @id @default(cuid())
 
-  name             String?    @map("name")
-  email            String     @unique @map("email")
-  password         String     @map("password")
+  name             String?
+  email            String     @unique
+  password         String
 
-  role             Role       @default(CUSTOMER) @map("role")
-  status           UserStatus @default(ACTIVE) @map("status")
+  role             Role       @default(CUSTOMER)
+  status           UserStatus @default(ACTIVE)
 
-  emailVerified    Boolean    @default(false) @map("email_verified")
-  verificationToken String?   @unique @map("verification_token")
-  resetToken       String?    @unique @map("reset_token")
-  resetTokenExpiry DateTime?  @map("reset_token_expiry")
+  emailVerified    Boolean    @default(false)
+  verificationToken String?   @unique
+  resetToken       String?    @unique
+  resetTokenExpiry DateTime?
 
   providerProfile  ProviderProfile?
   orders           Order[]
   reviews          Review[]
   refreshTokens    RefreshToken[]
 
-  createdAt        DateTime   @default(now()) @map("created_at")
-  updatedAt        DateTime   @updatedAt @map("updated_at")
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
 
   @@index([role])
   @@index([status])
   @@index([createdAt])
+
   @@map("users")
 }
 
@@ -67,23 +69,24 @@ model User {
 //////////////////////////////////////////////////////
 
 model ProviderProfile {
-  id              String   @id @default(cuid()) @map("id")
-  userId          String   @unique @map("user_id")
+  id             String   @id @default(cuid())
+  userId         String   @unique
 
-  restaurantName  String   @map("restaurant_name")
-  address         String   @map("address")
-  phone           String   @map("phone")
-  isApproved      Boolean  @default(false) @map("is_approved")
+  restaurantName String
+  address        String
+  phone          String
+  isApproved     Boolean  @default(false)
 
   user    User   @relation(fields: [userId], references: [id])
   meals   Meal[]
   orders  Order[]
 
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([isApproved])
   @@index([restaurantName])
+
   @@map("provider_profiles")
 }
 
@@ -92,16 +95,17 @@ model ProviderProfile {
 //////////////////////////////////////////////////////
 
 model Category {
-  id        String  @id @default(cuid()) @map("id")
-  name      String  @unique @map("name")
-  isActive  Boolean @default(true) @map("is_active")
+  id        String  @id @default(cuid())
+  name      String  @unique
+  isActive  Boolean @default(true)
 
   meals Meal[]
 
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([isActive])
+
   @@map("categories")
 }
 
@@ -110,29 +114,30 @@ model Category {
 //////////////////////////////////////////////////////
 
 model Meal {
-  id           String  @id @default(cuid()) @map("id")
-  providerId   String  @map("provider_id")
-  categoryId   String  @map("category_id")
+  id           String  @id @default(cuid())
+  providerId   String
+  categoryId   String
 
-  name         String  @map("name")
-  description  String  @map("description")
-  price        Float   @map("price")
-  image        String? @map("image")
-  isAvailable  Boolean @default(true) @map("is_available")
+  name         String
+  description  String
+  price        Float
+  image        String?
+  isAvailable  Boolean @default(true)
 
   provider   ProviderProfile @relation(fields: [providerId], references: [id])
   category   Category        @relation(fields: [categoryId], references: [id])
   orderItems OrderItem[]
   reviews    Review[]
 
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([providerId])
   @@index([categoryId])
   @@index([isAvailable])
   @@index([price])
   @@index([createdAt])
+
   @@map("meals")
 }
 
@@ -141,26 +146,27 @@ model Meal {
 //////////////////////////////////////////////////////
 
 model Order {
-  id              String      @id @default(cuid()) @map("id")
-  customerId      String      @map("customer_id")
-  providerId      String      @map("provider_id")
+  id              String      @id @default(cuid())
+  customerId      String
+  providerId      String
 
-  status          OrderStatus @default(PLACED) @map("status")
-  deliveryAddress String      @map("delivery_address")
-  totalAmount     Float       @map("total_amount")
+  status          OrderStatus @default(PLACED)
+  deliveryAddress String
+  totalAmount     Float
 
   customer User            @relation(fields: [customerId], references: [id])
   provider ProviderProfile @relation(fields: [providerId], references: [id])
   items    OrderItem[]
 
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([customerId])
   @@index([providerId])
   @@index([status])
   @@index([createdAt])
-  @@index([providerId, status]) // provider dashboard optimization
+  @@index([providerId, status]) // compound index
+
   @@map("orders")
 }
 
@@ -169,21 +175,22 @@ model Order {
 //////////////////////////////////////////////////////
 
 model OrderItem {
-  id        String @id @default(cuid()) @map("id")
-  orderId   String @map("order_id")
-  mealId    String @map("meal_id")
+  id        String @id @default(cuid())
+  orderId   String
+  mealId    String
 
-  quantity  Int    @map("quantity")
-  price     Float  @map("price") // price at order time
+  quantity  Int
+  price     Float
 
   order Order @relation(fields: [orderId], references: [id])
   meal  Meal  @relation(fields: [mealId], references: [id])
 
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([orderId])
   @@index([mealId])
+
   @@map("order_items")
 }
 
@@ -192,40 +199,42 @@ model OrderItem {
 //////////////////////////////////////////////////////
 
 model Review {
-  id         String @id @default(cuid()) @map("id")
-  customerId String @map("customer_id")
-  mealId     String @map("meal_id")
+  id         String @id @default(cuid())
+  customerId String
+  mealId     String
 
-  rating     Int    @map("rating")
-  comment    String @map("comment")
+  rating     Int
+  comment    String
 
   customer User @relation(fields: [customerId], references: [id])
   meal     Meal @relation(fields: [mealId], references: [id])
 
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([mealId])
   @@index([customerId])
   @@index([createdAt])
+
   @@map("reviews")
 }
 
 //////////////////////////////////////////////////////
-// REFRESH TOKEN (JWT Rotation Support)
+// REFRESH TOKEN (JWT ROTATION SUPPORT)
 //////////////////////////////////////////////////////
 
 model RefreshToken {
-  id        String   @id @default(cuid()) @map("id")
-  userId    String   @map("user_id")
-  token     String   @unique @map("token")
-  expiresAt DateTime @map("expires_at")
-  revoked   Boolean  @default(false) @map("revoked")
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  revoked   Boolean  @default(false)
 
   user User @relation(fields: [userId], references: [id])
 
-  createdAt DateTime @default(now()) @map("created_at")
+  createdAt DateTime @default(now())
 
   @@index([userId])
+
   @@map("refresh_tokens")
 }
