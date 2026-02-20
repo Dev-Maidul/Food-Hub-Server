@@ -1,3 +1,3 @@
-export type TProvider = {
+export type TCategory = {
     // Add interface properties here
     };

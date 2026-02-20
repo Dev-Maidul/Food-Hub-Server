@@ -1,6 +1,6 @@
 generator client {
   provider = "prisma-client-js"
-  output = "../generated/prisma"
+  
 }
 
 datasource db {
@@ -35,32 +35,33 @@ enum OrderStatus {
 //////////////////////////////////////////////////////
 
 model User {
-  id               String     @id @default(cuid())
+  id String @id @default(cuid())
 
-  name             String?
-  email            String     @unique
-  password         String
+  name     String?
+  email    String  @unique
+  password String
 
-  role             Role       @default(CUSTOMER)
-  status           UserStatus @default(ACTIVE)
+  role   Role       @default(CUSTOMER)
+  status UserStatus @default(ACTIVE)
 
-  emailVerified    Boolean    @default(false)
+  emailVerified     Boolean   @default(false)
   verificationToken String?   @unique
-  resetToken       String?    @unique
-  resetTokenExpiry DateTime?
+  resetToken        String?   @unique
+  resetTokenExpiry  DateTime?
 
-  providerProfile  ProviderProfile?
-  orders           Order[]
-  reviews          Review[]
-  refreshTokens    RefreshToken[]
+  providerProfile ProviderProfile?
+  orders          Order[]
+  reviews         Review[]
+  refreshTokens   RefreshToken[]
 
-  createdAt        DateTime   @default(now())
-  updatedAt        DateTime   @updatedAt
+  isDeleted Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([role])
   @@index([status])
   @@index([createdAt])
-
   @@map("users")
 }
 
@@ -69,24 +70,26 @@ model User {
 //////////////////////////////////////////////////////
 
 model ProviderProfile {
-  id             String   @id @default(cuid())
-  userId         String   @unique
+  id     String @id @default(cuid())
+  userId String @unique
 
   restaurantName String
+  slug           String  @unique
   address        String
   phone          String
-  isApproved     Boolean  @default(false)
+  isApproved     Boolean @default(false)
 
-  user    User   @relation(fields: [userId], references: [id])
-  meals   Meal[]
-  orders  Order[]
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  meals  Meal[]
+  orders Order[]
+
+  isDeleted Boolean @default(false)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([isApproved])
   @@index([restaurantName])
-
   @@map("provider_profiles")
 }
 
@@ -95,9 +98,10 @@ model ProviderProfile {
 //////////////////////////////////////////////////////
 
 model Category {
-  id        String  @id @default(cuid())
-  name      String  @unique
-  isActive  Boolean @default(true)
+  id       String  @id @default(cuid())
+  name     String  @unique
+  slug     String  @unique
+  isActive Boolean @default(true)
 
   meals Meal[]
 
@@ -105,7 +109,6 @@ model Category {
   updatedAt DateTime @updatedAt
 
   @@index([isActive])
-
   @@map("categories")
 }
 
@@ -114,20 +117,23 @@ model Category {
 //////////////////////////////////////////////////////
 
 model Meal {
-  id           String  @id @default(cuid())
-  providerId   String
-  categoryId   String
+  id         String @id @default(cuid())
+  providerId String
+  categoryId String
 
-  name         String
-  description  String
-  price        Float
-  image        String?
-  isAvailable  Boolean @default(true)
+  name        String
+  slug        String  @unique
+  description String
+  price       Decimal @db.Decimal(10, 2)
+  image       String?
+  isAvailable Boolean @default(true)
 
-  provider   ProviderProfile @relation(fields: [providerId], references: [id])
+  provider   ProviderProfile @relation(fields: [providerId], references: [id], onDelete: Cascade)
   category   Category        @relation(fields: [categoryId], references: [id])
   orderItems OrderItem[]
   reviews    Review[]
+
+  isDeleted Boolean @default(false)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -137,7 +143,6 @@ model Meal {
   @@index([isAvailable])
   @@index([price])
   @@index([createdAt])
-
   @@map("meals")
 }
 
@@ -146,15 +151,15 @@ model Meal {
 //////////////////////////////////////////////////////
 
 model Order {
-  id              String      @id @default(cuid())
-  customerId      String
-  providerId      String
+  id         String @id @default(cuid())
+  customerId String
+  providerId String
 
   status          OrderStatus @default(PLACED)
   deliveryAddress String
-  totalAmount     Float
+  totalAmount     Decimal     @db.Decimal(10, 2)
 
-  customer User            @relation(fields: [customerId], references: [id])
+  customer User            @relation(fields: [customerId], references: [id], onDelete: Cascade)
   provider ProviderProfile @relation(fields: [providerId], references: [id])
   items    OrderItem[]
 
@@ -165,8 +170,7 @@ model Order {
   @@index([providerId])
   @@index([status])
   @@index([createdAt])
-  @@index([providerId, status]) // compound index
-
+  @@index([providerId, status])
   @@map("orders")
 }
 
@@ -175,14 +179,14 @@ model Order {
 //////////////////////////////////////////////////////
 
 model OrderItem {
-  id        String @id @default(cuid())
-  orderId   String
-  mealId    String
+  id      String @id @default(cuid())
+  orderId String
+  mealId  String
 
-  quantity  Int
-  price     Float
+  quantity Int
+  price    Decimal @db.Decimal(10, 2)
 
-  order Order @relation(fields: [orderId], references: [id])
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
   meal  Meal  @relation(fields: [mealId], references: [id])
 
   createdAt DateTime @default(now())
@@ -190,7 +194,6 @@ model OrderItem {
 
   @@index([orderId])
   @@index([mealId])
-
   @@map("order_items")
 }
 
@@ -203,24 +206,24 @@ model Review {
   customerId String
   mealId     String
 
-  rating     Int
-  comment    String
+  rating  Int    @db.SmallInt
+  comment String
 
-  customer User @relation(fields: [customerId], references: [id])
-  meal     Meal @relation(fields: [mealId], references: [id])
+  customer User @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  meal     Meal @relation(fields: [mealId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  @@unique([customerId, mealId]) // prevent duplicate review
   @@index([mealId])
   @@index([customerId])
   @@index([createdAt])
-
   @@map("reviews")
 }
 
 //////////////////////////////////////////////////////
-// REFRESH TOKEN (JWT ROTATION SUPPORT)
+// REFRESH TOKEN (JWT ROTATION)
 //////////////////////////////////////////////////////
 
 model RefreshToken {
@@ -230,11 +233,10 @@ model RefreshToken {
   expiresAt DateTime
   revoked   Boolean  @default(false)
 
-  user User @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
 
   @@index([userId])
-
   @@map("refresh_tokens")
 }

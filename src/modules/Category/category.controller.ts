@@ -1,3 +1,3 @@
-export const ProviderController = {
+export const CategoryController = {
     // Add controller methods here
     };

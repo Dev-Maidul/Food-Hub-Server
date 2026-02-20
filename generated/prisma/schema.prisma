@@ -54,6 +54,8 @@ model User {
   reviews         Review[]
   refreshTokens   RefreshToken[]
 
+  isDeleted Boolean @default(false)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -72,13 +74,16 @@ model ProviderProfile {
   userId String @unique
 
   restaurantName String
+  slug           String  @unique
   address        String
   phone          String
   isApproved     Boolean @default(false)
 
-  user   User    @relation(fields: [userId], references: [id])
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   meals  Meal[]
   orders Order[]
+
+  isDeleted Boolean @default(false)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -95,6 +100,7 @@ model ProviderProfile {
 model Category {
   id       String  @id @default(cuid())
   name     String  @unique
+  slug     String  @unique
   isActive Boolean @default(true)
 
   meals Meal[]
@@ -116,15 +122,18 @@ model Meal {
   categoryId String
 
   name        String
+  slug        String  @unique
   description String
-  price       Float
+  price       Decimal @db.Decimal(10, 2)
   image       String?
   isAvailable Boolean @default(true)
 
-  provider   ProviderProfile @relation(fields: [providerId], references: [id])
+  provider   ProviderProfile @relation(fields: [providerId], references: [id], onDelete: Cascade)
   category   Category        @relation(fields: [categoryId], references: [id])
   orderItems OrderItem[]
   reviews    Review[]
+
+  isDeleted Boolean @default(false)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -148,9 +157,9 @@ model Order {
 
   status          OrderStatus @default(PLACED)
   deliveryAddress String
-  totalAmount     Float
+  totalAmount     Decimal     @db.Decimal(10, 2)
 
-  customer User            @relation(fields: [customerId], references: [id])
+  customer User            @relation(fields: [customerId], references: [id], onDelete: Cascade)
   provider ProviderProfile @relation(fields: [providerId], references: [id])
   items    OrderItem[]
 
@@ -161,7 +170,7 @@ model Order {
   @@index([providerId])
   @@index([status])
   @@index([createdAt])
-  @@index([providerId, status]) // compound index
+  @@index([providerId, status])
   @@map("orders")
 }
 
@@ -175,9 +184,9 @@ model OrderItem {
   mealId  String
 
   quantity Int
-  price    Float
+  price    Decimal @db.Decimal(10, 2)
 
-  order Order @relation(fields: [orderId], references: [id])
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
   meal  Meal  @relation(fields: [mealId], references: [id])
 
   createdAt DateTime @default(now())
@@ -197,15 +206,16 @@ model Review {
   customerId String
   mealId     String
 
-  rating  Int
+  rating  Int    @db.SmallInt
   comment String
 
-  customer User @relation(fields: [customerId], references: [id])
-  meal     Meal @relation(fields: [mealId], references: [id])
+  customer User @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  meal     Meal @relation(fields: [mealId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  @@unique([customerId, mealId]) // prevent duplicate review
   @@index([mealId])
   @@index([customerId])
   @@index([createdAt])
@@ -213,7 +223,7 @@ model Review {
 }
 
 //////////////////////////////////////////////////////
-// REFRESH TOKEN (JWT ROTATION SUPPORT)
+// REFRESH TOKEN (JWT ROTATION)
 //////////////////////////////////////////////////////
 
 model RefreshToken {
@@ -223,7 +233,7 @@ model RefreshToken {
   expiresAt DateTime
   revoked   Boolean  @default(false)
 
-  user User @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
 

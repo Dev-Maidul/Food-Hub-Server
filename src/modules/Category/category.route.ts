@@ -2,4 +2,4 @@ import express from 'express';
 
 const router = express.Router();
 
-export const ProviderRoutes = router;
+export const CategoryRoutes = router;

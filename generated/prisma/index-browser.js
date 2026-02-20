@@ -131,6 +131,7 @@ exports.Prisma.UserScalarFieldEnum = {
   verificationToken: 'verificationToken',
   resetToken: 'resetToken',
   resetTokenExpiry: 'resetTokenExpiry',
+  isDeleted: 'isDeleted',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -139,9 +140,11 @@ exports.Prisma.ProviderProfileScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
   restaurantName: 'restaurantName',
+  slug: 'slug',
   address: 'address',
   phone: 'phone',
   isApproved: 'isApproved',
+  isDeleted: 'isDeleted',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -149,6 +152,7 @@ exports.Prisma.ProviderProfileScalarFieldEnum = {
 exports.Prisma.CategoryScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  slug: 'slug',
   isActive: 'isActive',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -159,10 +163,12 @@ exports.Prisma.MealScalarFieldEnum = {
   providerId: 'providerId',
   categoryId: 'categoryId',
   name: 'name',
+  slug: 'slug',
   description: 'description',
   price: 'price',
   image: 'image',
   isAvailable: 'isAvailable',
+  isDeleted: 'isDeleted',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

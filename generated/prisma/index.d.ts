@@ -1755,6 +1755,7 @@ export namespace Prisma {
     verificationToken: string | null
     resetToken: string | null
     resetTokenExpiry: Date | null
+    isDeleted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1770,6 +1771,7 @@ export namespace Prisma {
     verificationToken: string | null
     resetToken: string | null
     resetTokenExpiry: Date | null
+    isDeleted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1785,6 +1787,7 @@ export namespace Prisma {
     verificationToken: number
     resetToken: number
     resetTokenExpiry: number
+    isDeleted: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -1802,6 +1805,7 @@ export namespace Prisma {
     verificationToken?: true
     resetToken?: true
     resetTokenExpiry?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1817,6 +1821,7 @@ export namespace Prisma {
     verificationToken?: true
     resetToken?: true
     resetTokenExpiry?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1832,6 +1837,7 @@ export namespace Prisma {
     verificationToken?: true
     resetToken?: true
     resetTokenExpiry?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1920,6 +1926,7 @@ export namespace Prisma {
     verificationToken: string | null
     resetToken: string | null
     resetTokenExpiry: Date | null
+    isDeleted: boolean
     createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
@@ -1952,6 +1959,7 @@ export namespace Prisma {
     verificationToken?: boolean
     resetToken?: boolean
     resetTokenExpiry?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     providerProfile?: boolean | User$providerProfileArgs<ExtArgs>
@@ -1972,6 +1980,7 @@ export namespace Prisma {
     verificationToken?: boolean
     resetToken?: boolean
     resetTokenExpiry?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1987,6 +1996,7 @@ export namespace Prisma {
     verificationToken?: boolean
     resetToken?: boolean
     resetTokenExpiry?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -2002,11 +2012,12 @@ export namespace Prisma {
     verificationToken?: boolean
     resetToken?: boolean
     resetTokenExpiry?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password" | "role" | "status" | "emailVerified" | "verificationToken" | "resetToken" | "resetTokenExpiry" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password" | "role" | "status" | "emailVerified" | "verificationToken" | "resetToken" | "resetTokenExpiry" | "isDeleted" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     providerProfile?: boolean | User$providerProfileArgs<ExtArgs>
     orders?: boolean | User$ordersArgs<ExtArgs>
@@ -2036,6 +2047,7 @@ export namespace Prisma {
       verificationToken: string | null
       resetToken: string | null
       resetTokenExpiry: Date | null
+      isDeleted: boolean
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["user"]>
@@ -2475,6 +2487,7 @@ export namespace Prisma {
     readonly verificationToken: FieldRef<"User", 'String'>
     readonly resetToken: FieldRef<"User", 'String'>
     readonly resetTokenExpiry: FieldRef<"User", 'DateTime'>
+    readonly isDeleted: FieldRef<"User", 'Boolean'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
@@ -2988,9 +3001,11 @@ export namespace Prisma {
     id: string | null
     userId: string | null
     restaurantName: string | null
+    slug: string | null
     address: string | null
     phone: string | null
     isApproved: boolean | null
+    isDeleted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2999,9 +3014,11 @@ export namespace Prisma {
     id: string | null
     userId: string | null
     restaurantName: string | null
+    slug: string | null
     address: string | null
     phone: string | null
     isApproved: boolean | null
+    isDeleted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3010,9 +3027,11 @@ export namespace Prisma {
     id: number
     userId: number
     restaurantName: number
+    slug: number
     address: number
     phone: number
     isApproved: number
+    isDeleted: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -3023,9 +3042,11 @@ export namespace Prisma {
     id?: true
     userId?: true
     restaurantName?: true
+    slug?: true
     address?: true
     phone?: true
     isApproved?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3034,9 +3055,11 @@ export namespace Prisma {
     id?: true
     userId?: true
     restaurantName?: true
+    slug?: true
     address?: true
     phone?: true
     isApproved?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3045,9 +3068,11 @@ export namespace Prisma {
     id?: true
     userId?: true
     restaurantName?: true
+    slug?: true
     address?: true
     phone?: true
     isApproved?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -3129,9 +3154,11 @@ export namespace Prisma {
     id: string
     userId: string
     restaurantName: string
+    slug: string
     address: string
     phone: string
     isApproved: boolean
+    isDeleted: boolean
     createdAt: Date
     updatedAt: Date
     _count: ProviderProfileCountAggregateOutputType | null
@@ -3157,9 +3184,11 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     restaurantName?: boolean
+    slug?: boolean
     address?: boolean
     phone?: boolean
     isApproved?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -3172,9 +3201,11 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     restaurantName?: boolean
+    slug?: boolean
     address?: boolean
     phone?: boolean
     isApproved?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -3184,9 +3215,11 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     restaurantName?: boolean
+    slug?: boolean
     address?: boolean
     phone?: boolean
     isApproved?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -3196,14 +3229,16 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     restaurantName?: boolean
+    slug?: boolean
     address?: boolean
     phone?: boolean
     isApproved?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type ProviderProfileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "restaurantName" | "address" | "phone" | "isApproved" | "createdAt" | "updatedAt", ExtArgs["result"]["providerProfile"]>
+  export type ProviderProfileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "restaurantName" | "slug" | "address" | "phone" | "isApproved" | "isDeleted" | "createdAt" | "updatedAt", ExtArgs["result"]["providerProfile"]>
   export type ProviderProfileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     meals?: boolean | ProviderProfile$mealsArgs<ExtArgs>
@@ -3228,9 +3263,11 @@ export namespace Prisma {
       id: string
       userId: string
       restaurantName: string
+      slug: string
       address: string
       phone: string
       isApproved: boolean
+      isDeleted: boolean
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["providerProfile"]>
@@ -3662,9 +3699,11 @@ export namespace Prisma {
     readonly id: FieldRef<"ProviderProfile", 'String'>
     readonly userId: FieldRef<"ProviderProfile", 'String'>
     readonly restaurantName: FieldRef<"ProviderProfile", 'String'>
+    readonly slug: FieldRef<"ProviderProfile", 'String'>
     readonly address: FieldRef<"ProviderProfile", 'String'>
     readonly phone: FieldRef<"ProviderProfile", 'String'>
     readonly isApproved: FieldRef<"ProviderProfile", 'Boolean'>
+    readonly isDeleted: FieldRef<"ProviderProfile", 'Boolean'>
     readonly createdAt: FieldRef<"ProviderProfile", 'DateTime'>
     readonly updatedAt: FieldRef<"ProviderProfile", 'DateTime'>
   }
@@ -4142,6 +4181,7 @@ export namespace Prisma {
   export type CategoryMinAggregateOutputType = {
     id: string | null
     name: string | null
+    slug: string | null
     isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -4150,6 +4190,7 @@ export namespace Prisma {
   export type CategoryMaxAggregateOutputType = {
     id: string | null
     name: string | null
+    slug: string | null
     isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -4158,6 +4199,7 @@ export namespace Prisma {
   export type CategoryCountAggregateOutputType = {
     id: number
     name: number
+    slug: number
     isActive: number
     createdAt: number
     updatedAt: number
@@ -4168,6 +4210,7 @@ export namespace Prisma {
   export type CategoryMinAggregateInputType = {
     id?: true
     name?: true
+    slug?: true
     isActive?: true
     createdAt?: true
     updatedAt?: true
@@ -4176,6 +4219,7 @@ export namespace Prisma {
   export type CategoryMaxAggregateInputType = {
     id?: true
     name?: true
+    slug?: true
     isActive?: true
     createdAt?: true
     updatedAt?: true
@@ -4184,6 +4228,7 @@ export namespace Prisma {
   export type CategoryCountAggregateInputType = {
     id?: true
     name?: true
+    slug?: true
     isActive?: true
     createdAt?: true
     updatedAt?: true
@@ -4265,6 +4310,7 @@ export namespace Prisma {
   export type CategoryGroupByOutputType = {
     id: string
     name: string
+    slug: string
     isActive: boolean
     createdAt: Date
     updatedAt: Date
@@ -4290,6 +4336,7 @@ export namespace Prisma {
   export type CategorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    slug?: boolean
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -4300,6 +4347,7 @@ export namespace Prisma {
   export type CategorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    slug?: boolean
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -4308,6 +4356,7 @@ export namespace Prisma {
   export type CategorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    slug?: boolean
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -4316,12 +4365,13 @@ export namespace Prisma {
   export type CategorySelectScalar = {
     id?: boolean
     name?: boolean
+    slug?: boolean
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type CategoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["category"]>
+  export type CategoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "slug" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["category"]>
   export type CategoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meals?: boolean | Category$mealsArgs<ExtArgs>
     _count?: boolean | CategoryCountOutputTypeDefaultArgs<ExtArgs>
@@ -4337,6 +4387,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
+      slug: string
       isActive: boolean
       createdAt: Date
       updatedAt: Date
@@ -4766,6 +4817,7 @@ export namespace Prisma {
   interface CategoryFieldRefs {
     readonly id: FieldRef<"Category", 'String'>
     readonly name: FieldRef<"Category", 'String'>
+    readonly slug: FieldRef<"Category", 'String'>
     readonly isActive: FieldRef<"Category", 'Boolean'>
     readonly createdAt: FieldRef<"Category", 'DateTime'>
     readonly updatedAt: FieldRef<"Category", 'DateTime'>
@@ -5212,11 +5264,11 @@ export namespace Prisma {
   }
 
   export type MealAvgAggregateOutputType = {
-    price: number | null
+    price: Decimal | null
   }
 
   export type MealSumAggregateOutputType = {
-    price: number | null
+    price: Decimal | null
   }
 
   export type MealMinAggregateOutputType = {
@@ -5224,10 +5276,12 @@ export namespace Prisma {
     providerId: string | null
     categoryId: string | null
     name: string | null
+    slug: string | null
     description: string | null
-    price: number | null
+    price: Decimal | null
     image: string | null
     isAvailable: boolean | null
+    isDeleted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -5237,10 +5291,12 @@ export namespace Prisma {
     providerId: string | null
     categoryId: string | null
     name: string | null
+    slug: string | null
     description: string | null
-    price: number | null
+    price: Decimal | null
     image: string | null
     isAvailable: boolean | null
+    isDeleted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -5250,10 +5306,12 @@ export namespace Prisma {
     providerId: number
     categoryId: number
     name: number
+    slug: number
     description: number
     price: number
     image: number
     isAvailable: number
+    isDeleted: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -5273,10 +5331,12 @@ export namespace Prisma {
     providerId?: true
     categoryId?: true
     name?: true
+    slug?: true
     description?: true
     price?: true
     image?: true
     isAvailable?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5286,10 +5346,12 @@ export namespace Prisma {
     providerId?: true
     categoryId?: true
     name?: true
+    slug?: true
     description?: true
     price?: true
     image?: true
     isAvailable?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5299,10 +5361,12 @@ export namespace Prisma {
     providerId?: true
     categoryId?: true
     name?: true
+    slug?: true
     description?: true
     price?: true
     image?: true
     isAvailable?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -5399,10 +5463,12 @@ export namespace Prisma {
     providerId: string
     categoryId: string
     name: string
+    slug: string
     description: string
-    price: number
+    price: Decimal
     image: string | null
     isAvailable: boolean
+    isDeleted: boolean
     createdAt: Date
     updatedAt: Date
     _count: MealCountAggregateOutputType | null
@@ -5431,10 +5497,12 @@ export namespace Prisma {
     providerId?: boolean
     categoryId?: boolean
     name?: boolean
+    slug?: boolean
     description?: boolean
     price?: boolean
     image?: boolean
     isAvailable?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     provider?: boolean | ProviderProfileDefaultArgs<ExtArgs>
@@ -5449,10 +5517,12 @@ export namespace Prisma {
     providerId?: boolean
     categoryId?: boolean
     name?: boolean
+    slug?: boolean
     description?: boolean
     price?: boolean
     image?: boolean
     isAvailable?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     provider?: boolean | ProviderProfileDefaultArgs<ExtArgs>
@@ -5464,10 +5534,12 @@ export namespace Prisma {
     providerId?: boolean
     categoryId?: boolean
     name?: boolean
+    slug?: boolean
     description?: boolean
     price?: boolean
     image?: boolean
     isAvailable?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     provider?: boolean | ProviderProfileDefaultArgs<ExtArgs>
@@ -5479,15 +5551,17 @@ export namespace Prisma {
     providerId?: boolean
     categoryId?: boolean
     name?: boolean
+    slug?: boolean
     description?: boolean
     price?: boolean
     image?: boolean
     isAvailable?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type MealOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "providerId" | "categoryId" | "name" | "description" | "price" | "image" | "isAvailable" | "createdAt" | "updatedAt", ExtArgs["result"]["meal"]>
+  export type MealOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "providerId" | "categoryId" | "name" | "slug" | "description" | "price" | "image" | "isAvailable" | "isDeleted" | "createdAt" | "updatedAt", ExtArgs["result"]["meal"]>
   export type MealInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     provider?: boolean | ProviderProfileDefaultArgs<ExtArgs>
     category?: boolean | CategoryDefaultArgs<ExtArgs>
@@ -5517,10 +5591,12 @@ export namespace Prisma {
       providerId: string
       categoryId: string
       name: string
+      slug: string
       description: string
-      price: number
+      price: Prisma.Decimal
       image: string | null
       isAvailable: boolean
+      isDeleted: boolean
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["meal"]>
@@ -5954,10 +6030,12 @@ export namespace Prisma {
     readonly providerId: FieldRef<"Meal", 'String'>
     readonly categoryId: FieldRef<"Meal", 'String'>
     readonly name: FieldRef<"Meal", 'String'>
+    readonly slug: FieldRef<"Meal", 'String'>
     readonly description: FieldRef<"Meal", 'String'>
-    readonly price: FieldRef<"Meal", 'Float'>
+    readonly price: FieldRef<"Meal", 'Decimal'>
     readonly image: FieldRef<"Meal", 'String'>
     readonly isAvailable: FieldRef<"Meal", 'Boolean'>
+    readonly isDeleted: FieldRef<"Meal", 'Boolean'>
     readonly createdAt: FieldRef<"Meal", 'DateTime'>
     readonly updatedAt: FieldRef<"Meal", 'DateTime'>
   }
@@ -6435,11 +6513,11 @@ export namespace Prisma {
   }
 
   export type OrderAvgAggregateOutputType = {
-    totalAmount: number | null
+    totalAmount: Decimal | null
   }
 
   export type OrderSumAggregateOutputType = {
-    totalAmount: number | null
+    totalAmount: Decimal | null
   }
 
   export type OrderMinAggregateOutputType = {
@@ -6448,7 +6526,7 @@ export namespace Prisma {
     providerId: string | null
     status: $Enums.OrderStatus | null
     deliveryAddress: string | null
-    totalAmount: number | null
+    totalAmount: Decimal | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -6459,7 +6537,7 @@ export namespace Prisma {
     providerId: string | null
     status: $Enums.OrderStatus | null
     deliveryAddress: string | null
-    totalAmount: number | null
+    totalAmount: Decimal | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -6611,7 +6689,7 @@ export namespace Prisma {
     providerId: string
     status: $Enums.OrderStatus
     deliveryAddress: string
-    totalAmount: number
+    totalAmount: Decimal
     createdAt: Date
     updatedAt: Date
     _count: OrderCountAggregateOutputType | null
@@ -6716,7 +6794,7 @@ export namespace Prisma {
       providerId: string
       status: $Enums.OrderStatus
       deliveryAddress: string
-      totalAmount: number
+      totalAmount: Prisma.Decimal
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["order"]>
@@ -7150,7 +7228,7 @@ export namespace Prisma {
     readonly providerId: FieldRef<"Order", 'String'>
     readonly status: FieldRef<"Order", 'OrderStatus'>
     readonly deliveryAddress: FieldRef<"Order", 'String'>
-    readonly totalAmount: FieldRef<"Order", 'Float'>
+    readonly totalAmount: FieldRef<"Order", 'Decimal'>
     readonly createdAt: FieldRef<"Order", 'DateTime'>
     readonly updatedAt: FieldRef<"Order", 'DateTime'>
   }
@@ -7605,12 +7683,12 @@ export namespace Prisma {
 
   export type OrderItemAvgAggregateOutputType = {
     quantity: number | null
-    price: number | null
+    price: Decimal | null
   }
 
   export type OrderItemSumAggregateOutputType = {
     quantity: number | null
-    price: number | null
+    price: Decimal | null
   }
 
   export type OrderItemMinAggregateOutputType = {
@@ -7618,7 +7696,7 @@ export namespace Prisma {
     orderId: string | null
     mealId: string | null
     quantity: number | null
-    price: number | null
+    price: Decimal | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -7628,7 +7706,7 @@ export namespace Prisma {
     orderId: string | null
     mealId: string | null
     quantity: number | null
-    price: number | null
+    price: Decimal | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -7777,7 +7855,7 @@ export namespace Prisma {
     orderId: string
     mealId: string
     quantity: number
-    price: number
+    price: Decimal
     createdAt: Date
     updatedAt: Date
     _count: OrderItemCountAggregateOutputType | null
@@ -7872,7 +7950,7 @@ export namespace Prisma {
       orderId: string
       mealId: string
       quantity: number
-      price: number
+      price: Prisma.Decimal
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["orderItem"]>
@@ -8304,7 +8382,7 @@ export namespace Prisma {
     readonly orderId: FieldRef<"OrderItem", 'String'>
     readonly mealId: FieldRef<"OrderItem", 'String'>
     readonly quantity: FieldRef<"OrderItem", 'Int'>
-    readonly price: FieldRef<"OrderItem", 'Float'>
+    readonly price: FieldRef<"OrderItem", 'Decimal'>
     readonly createdAt: FieldRef<"OrderItem", 'DateTime'>
     readonly updatedAt: FieldRef<"OrderItem", 'DateTime'>
   }
@@ -10943,6 +11021,7 @@ export namespace Prisma {
     verificationToken: 'verificationToken',
     resetToken: 'resetToken',
     resetTokenExpiry: 'resetTokenExpiry',
+    isDeleted: 'isDeleted',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -10954,9 +11033,11 @@ export namespace Prisma {
     id: 'id',
     userId: 'userId',
     restaurantName: 'restaurantName',
+    slug: 'slug',
     address: 'address',
     phone: 'phone',
     isApproved: 'isApproved',
+    isDeleted: 'isDeleted',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -10967,6 +11048,7 @@ export namespace Prisma {
   export const CategoryScalarFieldEnum: {
     id: 'id',
     name: 'name',
+    slug: 'slug',
     isActive: 'isActive',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -10980,10 +11062,12 @@ export namespace Prisma {
     providerId: 'providerId',
     categoryId: 'categoryId',
     name: 'name',
+    slug: 'slug',
     description: 'description',
     price: 'price',
     image: 'image',
     isAvailable: 'isAvailable',
+    isDeleted: 'isDeleted',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -11136,16 +11220,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Float'
+   * Reference to a field of type 'Decimal'
    */
-  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+  export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
     
 
 
   /**
-   * Reference to a field of type 'Float[]'
+   * Reference to a field of type 'Decimal[]'
    */
-  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+  export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
     
 
 
@@ -11175,6 +11259,20 @@ export namespace Prisma {
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
   /**
    * Deep Input Types
    */
@@ -11194,6 +11292,7 @@ export namespace Prisma {
     verificationToken?: StringNullableFilter<"User"> | string | null
     resetToken?: StringNullableFilter<"User"> | string | null
     resetTokenExpiry?: DateTimeNullableFilter<"User"> | Date | string | null
+    isDeleted?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     providerProfile?: XOR<ProviderProfileNullableScalarRelationFilter, ProviderProfileWhereInput> | null
@@ -11213,6 +11312,7 @@ export namespace Prisma {
     verificationToken?: SortOrderInput | SortOrder
     resetToken?: SortOrderInput | SortOrder
     resetTokenExpiry?: SortOrderInput | SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     providerProfile?: ProviderProfileOrderByWithRelationInput
@@ -11235,6 +11335,7 @@ export namespace Prisma {
     status?: EnumUserStatusFilter<"User"> | $Enums.UserStatus
     emailVerified?: BoolFilter<"User"> | boolean
     resetTokenExpiry?: DateTimeNullableFilter<"User"> | Date | string | null
+    isDeleted?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     providerProfile?: XOR<ProviderProfileNullableScalarRelationFilter, ProviderProfileWhereInput> | null
@@ -11254,6 +11355,7 @@ export namespace Prisma {
     verificationToken?: SortOrderInput | SortOrder
     resetToken?: SortOrderInput | SortOrder
     resetTokenExpiry?: SortOrderInput | SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -11275,6 +11377,7 @@ export namespace Prisma {
     verificationToken?: StringNullableWithAggregatesFilter<"User"> | string | null
     resetToken?: StringNullableWithAggregatesFilter<"User"> | string | null
     resetTokenExpiry?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
+    isDeleted?: BoolWithAggregatesFilter<"User"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
@@ -11286,9 +11389,11 @@ export namespace Prisma {
     id?: StringFilter<"ProviderProfile"> | string
     userId?: StringFilter<"ProviderProfile"> | string
     restaurantName?: StringFilter<"ProviderProfile"> | string
+    slug?: StringFilter<"ProviderProfile"> | string
     address?: StringFilter<"ProviderProfile"> | string
     phone?: StringFilter<"ProviderProfile"> | string
     isApproved?: BoolFilter<"ProviderProfile"> | boolean
+    isDeleted?: BoolFilter<"ProviderProfile"> | boolean
     createdAt?: DateTimeFilter<"ProviderProfile"> | Date | string
     updatedAt?: DateTimeFilter<"ProviderProfile"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -11300,9 +11405,11 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     restaurantName?: SortOrder
+    slug?: SortOrder
     address?: SortOrder
     phone?: SortOrder
     isApproved?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
@@ -11313,6 +11420,7 @@ export namespace Prisma {
   export type ProviderProfileWhereUniqueInput = Prisma.AtLeast<{
     id?: string
     userId?: string
+    slug?: string
     AND?: ProviderProfileWhereInput | ProviderProfileWhereInput[]
     OR?: ProviderProfileWhereInput[]
     NOT?: ProviderProfileWhereInput | ProviderProfileWhereInput[]
@@ -11320,20 +11428,23 @@ export namespace Prisma {
     address?: StringFilter<"ProviderProfile"> | string
     phone?: StringFilter<"ProviderProfile"> | string
     isApproved?: BoolFilter<"ProviderProfile"> | boolean
+    isDeleted?: BoolFilter<"ProviderProfile"> | boolean
     createdAt?: DateTimeFilter<"ProviderProfile"> | Date | string
     updatedAt?: DateTimeFilter<"ProviderProfile"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     meals?: MealListRelationFilter
     orders?: OrderListRelationFilter
-  }, "id" | "userId">
+  }, "id" | "userId" | "slug">
 
   export type ProviderProfileOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
     restaurantName?: SortOrder
+    slug?: SortOrder
     address?: SortOrder
     phone?: SortOrder
     isApproved?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: ProviderProfileCountOrderByAggregateInput
@@ -11348,9 +11459,11 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"ProviderProfile"> | string
     userId?: StringWithAggregatesFilter<"ProviderProfile"> | string
     restaurantName?: StringWithAggregatesFilter<"ProviderProfile"> | string
+    slug?: StringWithAggregatesFilter<"ProviderProfile"> | string
     address?: StringWithAggregatesFilter<"ProviderProfile"> | string
     phone?: StringWithAggregatesFilter<"ProviderProfile"> | string
     isApproved?: BoolWithAggregatesFilter<"ProviderProfile"> | boolean
+    isDeleted?: BoolWithAggregatesFilter<"ProviderProfile"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"ProviderProfile"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"ProviderProfile"> | Date | string
   }
@@ -11361,6 +11474,7 @@ export namespace Prisma {
     NOT?: CategoryWhereInput | CategoryWhereInput[]
     id?: StringFilter<"Category"> | string
     name?: StringFilter<"Category"> | string
+    slug?: StringFilter<"Category"> | string
     isActive?: BoolFilter<"Category"> | boolean
     createdAt?: DateTimeFilter<"Category"> | Date | string
     updatedAt?: DateTimeFilter<"Category"> | Date | string
@@ -11370,6 +11484,7 @@ export namespace Prisma {
   export type CategoryOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
+    slug?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -11379,6 +11494,7 @@ export namespace Prisma {
   export type CategoryWhereUniqueInput = Prisma.AtLeast<{
     id?: string
     name?: string
+    slug?: string
     AND?: CategoryWhereInput | CategoryWhereInput[]
     OR?: CategoryWhereInput[]
     NOT?: CategoryWhereInput | CategoryWhereInput[]
@@ -11386,11 +11502,12 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Category"> | Date | string
     updatedAt?: DateTimeFilter<"Category"> | Date | string
     meals?: MealListRelationFilter
-  }, "id" | "name">
+  }, "id" | "name" | "slug">
 
   export type CategoryOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    slug?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -11405,6 +11522,7 @@ export namespace Prisma {
     NOT?: CategoryScalarWhereWithAggregatesInput | CategoryScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Category"> | string
     name?: StringWithAggregatesFilter<"Category"> | string
+    slug?: StringWithAggregatesFilter<"Category"> | string
     isActive?: BoolWithAggregatesFilter<"Category"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Category"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Category"> | Date | string
@@ -11418,10 +11536,12 @@ export namespace Prisma {
     providerId?: StringFilter<"Meal"> | string
     categoryId?: StringFilter<"Meal"> | string
     name?: StringFilter<"Meal"> | string
+    slug?: StringFilter<"Meal"> | string
     description?: StringFilter<"Meal"> | string
-    price?: FloatFilter<"Meal"> | number
+    price?: DecimalFilter<"Meal"> | Decimal | DecimalJsLike | number | string
     image?: StringNullableFilter<"Meal"> | string | null
     isAvailable?: BoolFilter<"Meal"> | boolean
+    isDeleted?: BoolFilter<"Meal"> | boolean
     createdAt?: DateTimeFilter<"Meal"> | Date | string
     updatedAt?: DateTimeFilter<"Meal"> | Date | string
     provider?: XOR<ProviderProfileScalarRelationFilter, ProviderProfileWhereInput>
@@ -11435,10 +11555,12 @@ export namespace Prisma {
     providerId?: SortOrder
     categoryId?: SortOrder
     name?: SortOrder
+    slug?: SortOrder
     description?: SortOrder
     price?: SortOrder
     image?: SortOrderInput | SortOrder
     isAvailable?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     provider?: ProviderProfileOrderByWithRelationInput
@@ -11449,6 +11571,7 @@ export namespace Prisma {
 
   export type MealWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    slug?: string
     AND?: MealWhereInput | MealWhereInput[]
     OR?: MealWhereInput[]
     NOT?: MealWhereInput | MealWhereInput[]
@@ -11456,26 +11579,29 @@ export namespace Prisma {
     categoryId?: StringFilter<"Meal"> | string
     name?: StringFilter<"Meal"> | string
     description?: StringFilter<"Meal"> | string
-    price?: FloatFilter<"Meal"> | number
+    price?: DecimalFilter<"Meal"> | Decimal | DecimalJsLike | number | string
     image?: StringNullableFilter<"Meal"> | string | null
     isAvailable?: BoolFilter<"Meal"> | boolean
+    isDeleted?: BoolFilter<"Meal"> | boolean
     createdAt?: DateTimeFilter<"Meal"> | Date | string
     updatedAt?: DateTimeFilter<"Meal"> | Date | string
     provider?: XOR<ProviderProfileScalarRelationFilter, ProviderProfileWhereInput>
     category?: XOR<CategoryScalarRelationFilter, CategoryWhereInput>
     orderItems?: OrderItemListRelationFilter
     reviews?: ReviewListRelationFilter
-  }, "id">
+  }, "id" | "slug">
 
   export type MealOrderByWithAggregationInput = {
     id?: SortOrder
     providerId?: SortOrder
     categoryId?: SortOrder
     name?: SortOrder
+    slug?: SortOrder
     description?: SortOrder
     price?: SortOrder
     image?: SortOrderInput | SortOrder
     isAvailable?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: MealCountOrderByAggregateInput
@@ -11493,10 +11619,12 @@ export namespace Prisma {
     providerId?: StringWithAggregatesFilter<"Meal"> | string
     categoryId?: StringWithAggregatesFilter<"Meal"> | string
     name?: StringWithAggregatesFilter<"Meal"> | string
+    slug?: StringWithAggregatesFilter<"Meal"> | string
     description?: StringWithAggregatesFilter<"Meal"> | string
-    price?: FloatWithAggregatesFilter<"Meal"> | number
+    price?: DecimalWithAggregatesFilter<"Meal"> | Decimal | DecimalJsLike | number | string
     image?: StringNullableWithAggregatesFilter<"Meal"> | string | null
     isAvailable?: BoolWithAggregatesFilter<"Meal"> | boolean
+    isDeleted?: BoolWithAggregatesFilter<"Meal"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Meal"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Meal"> | Date | string
   }
@@ -11510,7 +11638,7 @@ export namespace Prisma {
     providerId?: StringFilter<"Order"> | string
     status?: EnumOrderStatusFilter<"Order"> | $Enums.OrderStatus
     deliveryAddress?: StringFilter<"Order"> | string
-    totalAmount?: FloatFilter<"Order"> | number
+    totalAmount?: DecimalFilter<"Order"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFilter<"Order"> | Date | string
     updatedAt?: DateTimeFilter<"Order"> | Date | string
     customer?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -11541,7 +11669,7 @@ export namespace Prisma {
     providerId?: StringFilter<"Order"> | string
     status?: EnumOrderStatusFilter<"Order"> | $Enums.OrderStatus
     deliveryAddress?: StringFilter<"Order"> | string
-    totalAmount?: FloatFilter<"Order"> | number
+    totalAmount?: DecimalFilter<"Order"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFilter<"Order"> | Date | string
     updatedAt?: DateTimeFilter<"Order"> | Date | string
     customer?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -11574,7 +11702,7 @@ export namespace Prisma {
     providerId?: StringWithAggregatesFilter<"Order"> | string
     status?: EnumOrderStatusWithAggregatesFilter<"Order"> | $Enums.OrderStatus
     deliveryAddress?: StringWithAggregatesFilter<"Order"> | string
-    totalAmount?: FloatWithAggregatesFilter<"Order"> | number
+    totalAmount?: DecimalWithAggregatesFilter<"Order"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeWithAggregatesFilter<"Order"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Order"> | Date | string
   }
@@ -11587,7 +11715,7 @@ export namespace Prisma {
     orderId?: StringFilter<"OrderItem"> | string
     mealId?: StringFilter<"OrderItem"> | string
     quantity?: IntFilter<"OrderItem"> | number
-    price?: FloatFilter<"OrderItem"> | number
+    price?: DecimalFilter<"OrderItem"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFilter<"OrderItem"> | Date | string
     updatedAt?: DateTimeFilter<"OrderItem"> | Date | string
     order?: XOR<OrderScalarRelationFilter, OrderWhereInput>
@@ -11614,7 +11742,7 @@ export namespace Prisma {
     orderId?: StringFilter<"OrderItem"> | string
     mealId?: StringFilter<"OrderItem"> | string
     quantity?: IntFilter<"OrderItem"> | number
-    price?: FloatFilter<"OrderItem"> | number
+    price?: DecimalFilter<"OrderItem"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFilter<"OrderItem"> | Date | string
     updatedAt?: DateTimeFilter<"OrderItem"> | Date | string
     order?: XOR<OrderScalarRelationFilter, OrderWhereInput>
@@ -11644,7 +11772,7 @@ export namespace Prisma {
     orderId?: StringWithAggregatesFilter<"OrderItem"> | string
     mealId?: StringWithAggregatesFilter<"OrderItem"> | string
     quantity?: IntWithAggregatesFilter<"OrderItem"> | number
-    price?: FloatWithAggregatesFilter<"OrderItem"> | number
+    price?: DecimalWithAggregatesFilter<"OrderItem"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeWithAggregatesFilter<"OrderItem"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"OrderItem"> | Date | string
   }
@@ -11678,6 +11806,7 @@ export namespace Prisma {
 
   export type ReviewWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    customerId_mealId?: ReviewCustomerIdMealIdCompoundUniqueInput
     AND?: ReviewWhereInput | ReviewWhereInput[]
     OR?: ReviewWhereInput[]
     NOT?: ReviewWhereInput | ReviewWhereInput[]
@@ -11689,7 +11818,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Review"> | Date | string
     customer?: XOR<UserScalarRelationFilter, UserWhereInput>
     meal?: XOR<MealScalarRelationFilter, MealWhereInput>
-  }, "id">
+  }, "id" | "customerId_mealId">
 
   export type ReviewOrderByWithAggregationInput = {
     id?: SortOrder
@@ -11790,6 +11919,7 @@ export namespace Prisma {
     verificationToken?: string | null
     resetToken?: string | null
     resetTokenExpiry?: Date | string | null
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     providerProfile?: ProviderProfileCreateNestedOneWithoutUserInput
@@ -11809,6 +11939,7 @@ export namespace Prisma {
     verificationToken?: string | null
     resetToken?: string | null
     resetTokenExpiry?: Date | string | null
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     providerProfile?: ProviderProfileUncheckedCreateNestedOneWithoutUserInput
@@ -11828,6 +11959,7 @@ export namespace Prisma {
     verificationToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     providerProfile?: ProviderProfileUpdateOneWithoutUserNestedInput
@@ -11847,6 +11979,7 @@ export namespace Prisma {
     verificationToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     providerProfile?: ProviderProfileUncheckedUpdateOneWithoutUserNestedInput
@@ -11866,6 +11999,7 @@ export namespace Prisma {
     verificationToken?: string | null
     resetToken?: string | null
     resetTokenExpiry?: Date | string | null
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -11881,6 +12015,7 @@ export namespace Prisma {
     verificationToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -11896,6 +12031,7 @@ export namespace Prisma {
     verificationToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -11903,9 +12039,11 @@ export namespace Prisma {
   export type ProviderProfileCreateInput = {
     id?: string
     restaurantName: string
+    slug: string
     address: string
     phone: string
     isApproved?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutProviderProfileInput
@@ -11917,9 +12055,11 @@ export namespace Prisma {
     id?: string
     userId: string
     restaurantName: string
+    slug: string
     address: string
     phone: string
     isApproved?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     meals?: MealUncheckedCreateNestedManyWithoutProviderInput
@@ -11929,9 +12069,11 @@ export namespace Prisma {
   export type ProviderProfileUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     restaurantName?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     isApproved?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutProviderProfileNestedInput
@@ -11943,9 +12085,11 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     restaurantName?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     isApproved?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     meals?: MealUncheckedUpdateManyWithoutProviderNestedInput
@@ -11956,9 +12100,11 @@ export namespace Prisma {
     id?: string
     userId: string
     restaurantName: string
+    slug: string
     address: string
     phone: string
     isApproved?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -11966,9 +12112,11 @@ export namespace Prisma {
   export type ProviderProfileUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     restaurantName?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     isApproved?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -11977,9 +12125,11 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     restaurantName?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     isApproved?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -11987,6 +12137,7 @@ export namespace Prisma {
   export type CategoryCreateInput = {
     id?: string
     name: string
+    slug: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11996,6 +12147,7 @@ export namespace Prisma {
   export type CategoryUncheckedCreateInput = {
     id?: string
     name: string
+    slug: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -12005,6 +12157,7 @@ export namespace Prisma {
   export type CategoryUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12014,6 +12167,7 @@ export namespace Prisma {
   export type CategoryUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12023,6 +12177,7 @@ export namespace Prisma {
   export type CategoryCreateManyInput = {
     id?: string
     name: string
+    slug: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -12031,6 +12186,7 @@ export namespace Prisma {
   export type CategoryUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12039,6 +12195,7 @@ export namespace Prisma {
   export type CategoryUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12047,10 +12204,12 @@ export namespace Prisma {
   export type MealCreateInput = {
     id?: string
     name: string
+    slug: string
     description: string
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     image?: string | null
     isAvailable?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     provider: ProviderProfileCreateNestedOneWithoutMealsInput
@@ -12064,10 +12223,12 @@ export namespace Prisma {
     providerId: string
     categoryId: string
     name: string
+    slug: string
     description: string
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     image?: string | null
     isAvailable?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     orderItems?: OrderItemUncheckedCreateNestedManyWithoutMealInput
@@ -12077,10 +12238,12 @@ export namespace Prisma {
   export type MealUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     provider?: ProviderProfileUpdateOneRequiredWithoutMealsNestedInput
@@ -12094,10 +12257,12 @@ export namespace Prisma {
     providerId?: StringFieldUpdateOperationsInput | string
     categoryId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     orderItems?: OrderItemUncheckedUpdateManyWithoutMealNestedInput
@@ -12109,10 +12274,12 @@ export namespace Prisma {
     providerId: string
     categoryId: string
     name: string
+    slug: string
     description: string
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     image?: string | null
     isAvailable?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -12120,10 +12287,12 @@ export namespace Prisma {
   export type MealUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12133,10 +12302,12 @@ export namespace Prisma {
     providerId?: StringFieldUpdateOperationsInput | string
     categoryId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12145,7 +12316,7 @@ export namespace Prisma {
     id?: string
     status?: $Enums.OrderStatus
     deliveryAddress: string
-    totalAmount: number
+    totalAmount: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     customer: UserCreateNestedOneWithoutOrdersInput
@@ -12159,7 +12330,7 @@ export namespace Prisma {
     providerId: string
     status?: $Enums.OrderStatus
     deliveryAddress: string
-    totalAmount: number
+    totalAmount: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     items?: OrderItemUncheckedCreateNestedManyWithoutOrderInput
@@ -12169,7 +12340,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
     deliveryAddress?: StringFieldUpdateOperationsInput | string
-    totalAmount?: FloatFieldUpdateOperationsInput | number
+    totalAmount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     customer?: UserUpdateOneRequiredWithoutOrdersNestedInput
@@ -12183,7 +12354,7 @@ export namespace Prisma {
     providerId?: StringFieldUpdateOperationsInput | string
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
     deliveryAddress?: StringFieldUpdateOperationsInput | string
-    totalAmount?: FloatFieldUpdateOperationsInput | number
+    totalAmount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     items?: OrderItemUncheckedUpdateManyWithoutOrderNestedInput
@@ -12195,7 +12366,7 @@ export namespace Prisma {
     providerId: string
     status?: $Enums.OrderStatus
     deliveryAddress: string
-    totalAmount: number
+    totalAmount: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -12204,7 +12375,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
     deliveryAddress?: StringFieldUpdateOperationsInput | string
-    totalAmount?: FloatFieldUpdateOperationsInput | number
+    totalAmount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12215,7 +12386,7 @@ export namespace Prisma {
     providerId?: StringFieldUpdateOperationsInput | string
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
     deliveryAddress?: StringFieldUpdateOperationsInput | string
-    totalAmount?: FloatFieldUpdateOperationsInput | number
+    totalAmount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12223,7 +12394,7 @@ export namespace Prisma {
   export type OrderItemCreateInput = {
     id?: string
     quantity: number
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     order: OrderCreateNestedOneWithoutItemsInput
@@ -12235,7 +12406,7 @@ export namespace Prisma {
     orderId: string
     mealId: string
     quantity: number
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -12243,7 +12414,7 @@ export namespace Prisma {
   export type OrderItemUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     order?: OrderUpdateOneRequiredWithoutItemsNestedInput
@@ -12255,7 +12426,7 @@ export namespace Prisma {
     orderId?: StringFieldUpdateOperationsInput | string
     mealId?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12265,7 +12436,7 @@ export namespace Prisma {
     orderId: string
     mealId: string
     quantity: number
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -12273,7 +12444,7 @@ export namespace Prisma {
   export type OrderItemUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12283,7 +12454,7 @@ export namespace Prisma {
     orderId?: StringFieldUpdateOperationsInput | string
     mealId?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12540,6 +12711,7 @@ export namespace Prisma {
     verificationToken?: SortOrder
     resetToken?: SortOrder
     resetTokenExpiry?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -12555,6 +12727,7 @@ export namespace Prisma {
     verificationToken?: SortOrder
     resetToken?: SortOrder
     resetTokenExpiry?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -12570,6 +12743,7 @@ export namespace Prisma {
     verificationToken?: SortOrder
     resetToken?: SortOrder
     resetTokenExpiry?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -12685,9 +12859,11 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     restaurantName?: SortOrder
+    slug?: SortOrder
     address?: SortOrder
     phone?: SortOrder
     isApproved?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -12696,9 +12872,11 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     restaurantName?: SortOrder
+    slug?: SortOrder
     address?: SortOrder
     phone?: SortOrder
     isApproved?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -12707,9 +12885,11 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     restaurantName?: SortOrder
+    slug?: SortOrder
     address?: SortOrder
     phone?: SortOrder
     isApproved?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -12717,6 +12897,7 @@ export namespace Prisma {
   export type CategoryCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    slug?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -12725,6 +12906,7 @@ export namespace Prisma {
   export type CategoryMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    slug?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -12733,20 +12915,21 @@ export namespace Prisma {
   export type CategoryMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    slug?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type FloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
+  export type DecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
   }
 
   export type ProviderProfileScalarRelationFilter = {
@@ -12774,10 +12957,12 @@ export namespace Prisma {
     providerId?: SortOrder
     categoryId?: SortOrder
     name?: SortOrder
+    slug?: SortOrder
     description?: SortOrder
     price?: SortOrder
     image?: SortOrder
     isAvailable?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -12791,10 +12976,12 @@ export namespace Prisma {
     providerId?: SortOrder
     categoryId?: SortOrder
     name?: SortOrder
+    slug?: SortOrder
     description?: SortOrder
     price?: SortOrder
     image?: SortOrder
     isAvailable?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -12804,10 +12991,12 @@ export namespace Prisma {
     providerId?: SortOrder
     categoryId?: SortOrder
     name?: SortOrder
+    slug?: SortOrder
     description?: SortOrder
     price?: SortOrder
     image?: SortOrder
     isAvailable?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -12816,20 +13005,20 @@ export namespace Prisma {
     price?: SortOrder
   }
 
-  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+  export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
     _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedFloatFilter<$PrismaModel>
-    _min?: NestedFloatFilter<$PrismaModel>
-    _max?: NestedFloatFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
   }
 
   export type EnumOrderStatusFilter<$PrismaModel = never> = {
@@ -12965,6 +13154,11 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type ReviewCustomerIdMealIdCompoundUniqueInput = {
+    customerId: string
+    mealId: string
   }
 
   export type ReviewCountOrderByAggregateInput = {
@@ -13398,12 +13592,12 @@ export namespace Prisma {
     connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
   }
 
-  export type FloatFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
+  export type DecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
   }
 
   export type ProviderProfileUpdateOneRequiredWithoutMealsNestedInput = {
@@ -13811,31 +14005,31 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
+  export type NestedDecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
   }
 
-  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+  export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
     _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedFloatFilter<$PrismaModel>
-    _min?: NestedFloatFilter<$PrismaModel>
-    _max?: NestedFloatFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
   }
 
   export type NestedEnumOrderStatusFilter<$PrismaModel = never> = {
@@ -13871,12 +14065,25 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
   export type ProviderProfileCreateWithoutUserInput = {
     id?: string
     restaurantName: string
+    slug: string
     address: string
     phone: string
     isApproved?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     meals?: MealCreateNestedManyWithoutProviderInput
@@ -13886,9 +14093,11 @@ export namespace Prisma {
   export type ProviderProfileUncheckedCreateWithoutUserInput = {
     id?: string
     restaurantName: string
+    slug: string
     address: string
     phone: string
     isApproved?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     meals?: MealUncheckedCreateNestedManyWithoutProviderInput
@@ -13904,7 +14113,7 @@ export namespace Prisma {
     id?: string
     status?: $Enums.OrderStatus
     deliveryAddress: string
-    totalAmount: number
+    totalAmount: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     provider: ProviderProfileCreateNestedOneWithoutOrdersInput
@@ -13916,7 +14125,7 @@ export namespace Prisma {
     providerId: string
     status?: $Enums.OrderStatus
     deliveryAddress: string
-    totalAmount: number
+    totalAmount: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     items?: OrderItemUncheckedCreateNestedManyWithoutOrderInput
@@ -14000,9 +14209,11 @@ export namespace Prisma {
   export type ProviderProfileUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     restaurantName?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     isApproved?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     meals?: MealUpdateManyWithoutProviderNestedInput
@@ -14012,9 +14223,11 @@ export namespace Prisma {
   export type ProviderProfileUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     restaurantName?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     isApproved?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     meals?: MealUncheckedUpdateManyWithoutProviderNestedInput
@@ -14046,7 +14259,7 @@ export namespace Prisma {
     providerId?: StringFilter<"Order"> | string
     status?: EnumOrderStatusFilter<"Order"> | $Enums.OrderStatus
     deliveryAddress?: StringFilter<"Order"> | string
-    totalAmount?: FloatFilter<"Order"> | number
+    totalAmount?: DecimalFilter<"Order"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFilter<"Order"> | Date | string
     updatedAt?: DateTimeFilter<"Order"> | Date | string
   }
@@ -14119,6 +14332,7 @@ export namespace Prisma {
     verificationToken?: string | null
     resetToken?: string | null
     resetTokenExpiry?: Date | string | null
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     orders?: OrderCreateNestedManyWithoutCustomerInput
@@ -14137,6 +14351,7 @@ export namespace Prisma {
     verificationToken?: string | null
     resetToken?: string | null
     resetTokenExpiry?: Date | string | null
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     orders?: OrderUncheckedCreateNestedManyWithoutCustomerInput
@@ -14152,10 +14367,12 @@ export namespace Prisma {
   export type MealCreateWithoutProviderInput = {
     id?: string
     name: string
+    slug: string
     description: string
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     image?: string | null
     isAvailable?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     category: CategoryCreateNestedOneWithoutMealsInput
@@ -14167,10 +14384,12 @@ export namespace Prisma {
     id?: string
     categoryId: string
     name: string
+    slug: string
     description: string
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     image?: string | null
     isAvailable?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     orderItems?: OrderItemUncheckedCreateNestedManyWithoutMealInput
@@ -14191,7 +14410,7 @@ export namespace Prisma {
     id?: string
     status?: $Enums.OrderStatus
     deliveryAddress: string
-    totalAmount: number
+    totalAmount: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     customer: UserCreateNestedOneWithoutOrdersInput
@@ -14203,7 +14422,7 @@ export namespace Prisma {
     customerId: string
     status?: $Enums.OrderStatus
     deliveryAddress: string
-    totalAmount: number
+    totalAmount: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     items?: OrderItemUncheckedCreateNestedManyWithoutOrderInput
@@ -14241,6 +14460,7 @@ export namespace Prisma {
     verificationToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     orders?: OrderUpdateManyWithoutCustomerNestedInput
@@ -14259,6 +14479,7 @@ export namespace Prisma {
     verificationToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     orders?: OrderUncheckedUpdateManyWithoutCustomerNestedInput
@@ -14290,10 +14511,12 @@ export namespace Prisma {
     providerId?: StringFilter<"Meal"> | string
     categoryId?: StringFilter<"Meal"> | string
     name?: StringFilter<"Meal"> | string
+    slug?: StringFilter<"Meal"> | string
     description?: StringFilter<"Meal"> | string
-    price?: FloatFilter<"Meal"> | number
+    price?: DecimalFilter<"Meal"> | Decimal | DecimalJsLike | number | string
     image?: StringNullableFilter<"Meal"> | string | null
     isAvailable?: BoolFilter<"Meal"> | boolean
+    isDeleted?: BoolFilter<"Meal"> | boolean
     createdAt?: DateTimeFilter<"Meal"> | Date | string
     updatedAt?: DateTimeFilter<"Meal"> | Date | string
   }
@@ -14317,10 +14540,12 @@ export namespace Prisma {
   export type MealCreateWithoutCategoryInput = {
     id?: string
     name: string
+    slug: string
     description: string
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     image?: string | null
     isAvailable?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     provider: ProviderProfileCreateNestedOneWithoutMealsInput
@@ -14332,10 +14557,12 @@ export namespace Prisma {
     id?: string
     providerId: string
     name: string
+    slug: string
     description: string
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     image?: string | null
     isAvailable?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     orderItems?: OrderItemUncheckedCreateNestedManyWithoutMealInput
@@ -14371,9 +14598,11 @@ export namespace Prisma {
   export type ProviderProfileCreateWithoutMealsInput = {
     id?: string
     restaurantName: string
+    slug: string
     address: string
     phone: string
     isApproved?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutProviderProfileInput
@@ -14384,9 +14613,11 @@ export namespace Prisma {
     id?: string
     userId: string
     restaurantName: string
+    slug: string
     address: string
     phone: string
     isApproved?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     orders?: OrderUncheckedCreateNestedManyWithoutProviderInput
@@ -14400,6 +14631,7 @@ export namespace Prisma {
   export type CategoryCreateWithoutMealsInput = {
     id?: string
     name: string
+    slug: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -14408,6 +14640,7 @@ export namespace Prisma {
   export type CategoryUncheckedCreateWithoutMealsInput = {
     id?: string
     name: string
+    slug: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -14421,7 +14654,7 @@ export namespace Prisma {
   export type OrderItemCreateWithoutMealInput = {
     id?: string
     quantity: number
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     order: OrderCreateNestedOneWithoutItemsInput
@@ -14431,7 +14664,7 @@ export namespace Prisma {
     id?: string
     orderId: string
     quantity: number
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -14488,9 +14721,11 @@ export namespace Prisma {
   export type ProviderProfileUpdateWithoutMealsInput = {
     id?: StringFieldUpdateOperationsInput | string
     restaurantName?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     isApproved?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutProviderProfileNestedInput
@@ -14501,9 +14736,11 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     restaurantName?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     isApproved?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     orders?: OrderUncheckedUpdateManyWithoutProviderNestedInput
@@ -14523,6 +14760,7 @@ export namespace Prisma {
   export type CategoryUpdateWithoutMealsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14531,6 +14769,7 @@ export namespace Prisma {
   export type CategoryUncheckedUpdateWithoutMealsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14560,7 +14799,7 @@ export namespace Prisma {
     orderId?: StringFilter<"OrderItem"> | string
     mealId?: StringFilter<"OrderItem"> | string
     quantity?: IntFilter<"OrderItem"> | number
-    price?: FloatFilter<"OrderItem"> | number
+    price?: DecimalFilter<"OrderItem"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFilter<"OrderItem"> | Date | string
     updatedAt?: DateTimeFilter<"OrderItem"> | Date | string
   }
@@ -14592,6 +14831,7 @@ export namespace Prisma {
     verificationToken?: string | null
     resetToken?: string | null
     resetTokenExpiry?: Date | string | null
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     providerProfile?: ProviderProfileCreateNestedOneWithoutUserInput
@@ -14610,6 +14850,7 @@ export namespace Prisma {
     verificationToken?: string | null
     resetToken?: string | null
     resetTokenExpiry?: Date | string | null
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     providerProfile?: ProviderProfileUncheckedCreateNestedOneWithoutUserInput
@@ -14625,9 +14866,11 @@ export namespace Prisma {
   export type ProviderProfileCreateWithoutOrdersInput = {
     id?: string
     restaurantName: string
+    slug: string
     address: string
     phone: string
     isApproved?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutProviderProfileInput
@@ -14638,9 +14881,11 @@ export namespace Prisma {
     id?: string
     userId: string
     restaurantName: string
+    slug: string
     address: string
     phone: string
     isApproved?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     meals?: MealUncheckedCreateNestedManyWithoutProviderInput
@@ -14654,7 +14899,7 @@ export namespace Prisma {
   export type OrderItemCreateWithoutOrderInput = {
     id?: string
     quantity: number
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     meal: MealCreateNestedOneWithoutOrderItemsInput
@@ -14664,7 +14909,7 @@ export namespace Prisma {
     id?: string
     mealId: string
     quantity: number
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -14701,6 +14946,7 @@ export namespace Prisma {
     verificationToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     providerProfile?: ProviderProfileUpdateOneWithoutUserNestedInput
@@ -14719,6 +14965,7 @@ export namespace Prisma {
     verificationToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     providerProfile?: ProviderProfileUncheckedUpdateOneWithoutUserNestedInput
@@ -14740,9 +14987,11 @@ export namespace Prisma {
   export type ProviderProfileUpdateWithoutOrdersInput = {
     id?: StringFieldUpdateOperationsInput | string
     restaurantName?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     isApproved?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutProviderProfileNestedInput
@@ -14753,9 +15002,11 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     restaurantName?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     isApproved?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     meals?: MealUncheckedUpdateManyWithoutProviderNestedInput
@@ -14781,7 +15032,7 @@ export namespace Prisma {
     id?: string
     status?: $Enums.OrderStatus
     deliveryAddress: string
-    totalAmount: number
+    totalAmount: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     customer: UserCreateNestedOneWithoutOrdersInput
@@ -14794,7 +15045,7 @@ export namespace Prisma {
     providerId: string
     status?: $Enums.OrderStatus
     deliveryAddress: string
-    totalAmount: number
+    totalAmount: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -14807,10 +15058,12 @@ export namespace Prisma {
   export type MealCreateWithoutOrderItemsInput = {
     id?: string
     name: string
+    slug: string
     description: string
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     image?: string | null
     isAvailable?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     provider: ProviderProfileCreateNestedOneWithoutMealsInput
@@ -14823,10 +15076,12 @@ export namespace Prisma {
     providerId: string
     categoryId: string
     name: string
+    slug: string
     description: string
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     image?: string | null
     isAvailable?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     reviews?: ReviewUncheckedCreateNestedManyWithoutMealInput
@@ -14852,7 +15107,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
     deliveryAddress?: StringFieldUpdateOperationsInput | string
-    totalAmount?: FloatFieldUpdateOperationsInput | number
+    totalAmount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     customer?: UserUpdateOneRequiredWithoutOrdersNestedInput
@@ -14865,7 +15120,7 @@ export namespace Prisma {
     providerId?: StringFieldUpdateOperationsInput | string
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
     deliveryAddress?: StringFieldUpdateOperationsInput | string
-    totalAmount?: FloatFieldUpdateOperationsInput | number
+    totalAmount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -14884,10 +15139,12 @@ export namespace Prisma {
   export type MealUpdateWithoutOrderItemsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     provider?: ProviderProfileUpdateOneRequiredWithoutMealsNestedInput
@@ -14900,10 +15157,12 @@ export namespace Prisma {
     providerId?: StringFieldUpdateOperationsInput | string
     categoryId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     reviews?: ReviewUncheckedUpdateManyWithoutMealNestedInput
@@ -14920,6 +15179,7 @@ export namespace Prisma {
     verificationToken?: string | null
     resetToken?: string | null
     resetTokenExpiry?: Date | string | null
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     providerProfile?: ProviderProfileCreateNestedOneWithoutUserInput
@@ -14938,6 +15198,7 @@ export namespace Prisma {
     verificationToken?: string | null
     resetToken?: string | null
     resetTokenExpiry?: Date | string | null
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     providerProfile?: ProviderProfileUncheckedCreateNestedOneWithoutUserInput
@@ -14953,10 +15214,12 @@ export namespace Prisma {
   export type MealCreateWithoutReviewsInput = {
     id?: string
     name: string
+    slug: string
     description: string
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     image?: string | null
     isAvailable?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     provider: ProviderProfileCreateNestedOneWithoutMealsInput
@@ -14969,10 +15232,12 @@ export namespace Prisma {
     providerId: string
     categoryId: string
     name: string
+    slug: string
     description: string
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     image?: string | null
     isAvailable?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     orderItems?: OrderItemUncheckedCreateNestedManyWithoutMealInput
@@ -15005,6 +15270,7 @@ export namespace Prisma {
     verificationToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     providerProfile?: ProviderProfileUpdateOneWithoutUserNestedInput
@@ -15023,6 +15289,7 @@ export namespace Prisma {
     verificationToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     providerProfile?: ProviderProfileUncheckedUpdateOneWithoutUserNestedInput
@@ -15044,10 +15311,12 @@ export namespace Prisma {
   export type MealUpdateWithoutReviewsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     provider?: ProviderProfileUpdateOneRequiredWithoutMealsNestedInput
@@ -15060,10 +15329,12 @@ export namespace Prisma {
     providerId?: StringFieldUpdateOperationsInput | string
     categoryId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     orderItems?: OrderItemUncheckedUpdateManyWithoutMealNestedInput
@@ -15080,6 +15351,7 @@ export namespace Prisma {
     verificationToken?: string | null
     resetToken?: string | null
     resetTokenExpiry?: Date | string | null
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     providerProfile?: ProviderProfileCreateNestedOneWithoutUserInput
@@ -15098,6 +15370,7 @@ export namespace Prisma {
     verificationToken?: string | null
     resetToken?: string | null
     resetTokenExpiry?: Date | string | null
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     providerProfile?: ProviderProfileUncheckedCreateNestedOneWithoutUserInput
@@ -15132,6 +15405,7 @@ export namespace Prisma {
     verificationToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     providerProfile?: ProviderProfileUpdateOneWithoutUserNestedInput
@@ -15150,6 +15424,7 @@ export namespace Prisma {
     verificationToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetToken?: NullableStringFieldUpdateOperationsInput | string | null
     resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     providerProfile?: ProviderProfileUncheckedUpdateOneWithoutUserNestedInput
@@ -15162,7 +15437,7 @@ export namespace Prisma {
     providerId: string
     status?: $Enums.OrderStatus
     deliveryAddress: string
-    totalAmount: number
+    totalAmount: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -15188,7 +15463,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
     deliveryAddress?: StringFieldUpdateOperationsInput | string
-    totalAmount?: FloatFieldUpdateOperationsInput | number
+    totalAmount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     provider?: ProviderProfileUpdateOneRequiredWithoutOrdersNestedInput
@@ -15200,7 +15475,7 @@ export namespace Prisma {
     providerId?: StringFieldUpdateOperationsInput | string
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
     deliveryAddress?: StringFieldUpdateOperationsInput | string
-    totalAmount?: FloatFieldUpdateOperationsInput | number
+    totalAmount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     items?: OrderItemUncheckedUpdateManyWithoutOrderNestedInput
@@ -15211,7 +15486,7 @@ export namespace Prisma {
     providerId?: StringFieldUpdateOperationsInput | string
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
     deliveryAddress?: StringFieldUpdateOperationsInput | string
-    totalAmount?: FloatFieldUpdateOperationsInput | number
+    totalAmount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -15271,10 +15546,12 @@ export namespace Prisma {
     id?: string
     categoryId: string
     name: string
+    slug: string
     description: string
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     image?: string | null
     isAvailable?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -15284,7 +15561,7 @@ export namespace Prisma {
     customerId: string
     status?: $Enums.OrderStatus
     deliveryAddress: string
-    totalAmount: number
+    totalAmount: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -15292,10 +15569,12 @@ export namespace Prisma {
   export type MealUpdateWithoutProviderInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     category?: CategoryUpdateOneRequiredWithoutMealsNestedInput
@@ -15307,10 +15586,12 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     categoryId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     orderItems?: OrderItemUncheckedUpdateManyWithoutMealNestedInput
@@ -15321,10 +15602,12 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     categoryId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -15333,7 +15616,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
     deliveryAddress?: StringFieldUpdateOperationsInput | string
-    totalAmount?: FloatFieldUpdateOperationsInput | number
+    totalAmount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     customer?: UserUpdateOneRequiredWithoutOrdersNestedInput
@@ -15345,7 +15628,7 @@ export namespace Prisma {
     customerId?: StringFieldUpdateOperationsInput | string
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
     deliveryAddress?: StringFieldUpdateOperationsInput | string
-    totalAmount?: FloatFieldUpdateOperationsInput | number
+    totalAmount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     items?: OrderItemUncheckedUpdateManyWithoutOrderNestedInput
@@ -15356,7 +15639,7 @@ export namespace Prisma {
     customerId?: StringFieldUpdateOperationsInput | string
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
     deliveryAddress?: StringFieldUpdateOperationsInput | string
-    totalAmount?: FloatFieldUpdateOperationsInput | number
+    totalAmount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -15365,10 +15648,12 @@ export namespace Prisma {
     id?: string
     providerId: string
     name: string
+    slug: string
     description: string
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     image?: string | null
     isAvailable?: boolean
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -15376,10 +15661,12 @@ export namespace Prisma {
   export type MealUpdateWithoutCategoryInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     provider?: ProviderProfileUpdateOneRequiredWithoutMealsNestedInput
@@ -15391,10 +15678,12 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     providerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     orderItems?: OrderItemUncheckedUpdateManyWithoutMealNestedInput
@@ -15405,10 +15694,12 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     providerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     image?: NullableStringFieldUpdateOperationsInput | string | null
     isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -15417,7 +15708,7 @@ export namespace Prisma {
     id?: string
     orderId: string
     quantity: number
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -15434,7 +15725,7 @@ export namespace Prisma {
   export type OrderItemUpdateWithoutMealInput = {
     id?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     order?: OrderUpdateOneRequiredWithoutItemsNestedInput
@@ -15444,7 +15735,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     orderId?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -15453,7 +15744,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     orderId?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -15489,7 +15780,7 @@ export namespace Prisma {
     id?: string
     mealId: string
     quantity: number
-    price: number
+    price: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -15497,7 +15788,7 @@ export namespace Prisma {
   export type OrderItemUpdateWithoutOrderInput = {
     id?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     meal?: MealUpdateOneRequiredWithoutOrderItemsNestedInput
@@ -15507,7 +15798,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     mealId?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -15516,7 +15807,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     mealId?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
