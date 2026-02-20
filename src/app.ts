@@ -1,7 +1,6 @@
 import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import { AuthRoutes } from './modules/Auth/auth.route';
-import { PetRoutes } from './modules/Pet/pet.route';
 
 const app: Application = express();
 
@@ -12,7 +11,6 @@ app.use(cors());
 // /api/auth/register
 
 app.use('/api/auth',AuthRoutes)
-app.use('/api/v1/pet',PetRoutes)
 
 
 app.get('/', (req: Request, res: Response) => {
