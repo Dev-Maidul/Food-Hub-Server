@@ -85,6 +85,7 @@ const approveProvider = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
+    console.error("APPROVE PROVIDER ERROR:", error);
     sendResponse(res, {
       statusCode: 500,
       success: false,
