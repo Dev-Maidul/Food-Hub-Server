@@ -5,8 +5,8 @@ import { prisma } from "../lib/prisma";
 
 export enum UserRole {
   admin = "ADMIN",
-  owner = "OWNER",
-  sitter = "SITTER",
+  provider = "PROVIDER",
+  customer = "CUSTOMER",
 }
 
 const auth = (...roles: UserRole[]) => {
