@@ -116,10 +116,34 @@ const removeItem = async (req: Request, res: Response) => {
     });
   }
 };
+
+const clearCart = async (req: Request, res: Response) => {
+  try {
+    const userId = req.user?.id;
+
+    const result = await CartService.clearCart(userId);
+
+    sendResponse(res, {
+      statusCode: 200,
+      success: true,
+      message: "Cart cleared successfully",
+      data: result,
+    });
+  } catch (error: any) {
+    sendResponse(res, {
+      statusCode: 400,
+      success: false,
+      message: error.message || "Failed to clear cart",
+      data: null,
+    });
+  }
+};
+
 export const CartController = {
   createCart,
   getMyCart,
   addToCart,
   updateQuantity,
-  removeItem
+  removeItem,
+  clearCart
 };

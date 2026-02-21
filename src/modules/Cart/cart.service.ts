@@ -213,10 +213,28 @@ const removeItem = async (
   return { deletedId: cartItemId };
 };
 
+const clearCart = async (userId: string) => {
+  // 1️⃣ Find cart
+  const cart = await prisma.cart.findUnique({
+    where: { userId },
+  });
+
+  if (!cart) {
+    throw new Error("Cart not found");
+  }
+
+  // 2️⃣ Delete all cart items
+  await prisma.cartItem.deleteMany({
+    where: { cartId: cart.id },
+  });
+
+  return { cleared: true };
+};
 export const CartService = {
   createCart,
   getMyCart,
   addToCart,
   updateQuantity,
   removeItem,
+  clearCart,
 };
