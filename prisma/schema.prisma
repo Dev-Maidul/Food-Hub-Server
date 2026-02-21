@@ -1,6 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
-  
+  provider = "prisma-client"
+  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -58,6 +58,7 @@ model User {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  cart      Cart?
 
   @@index([role])
   @@index([status])
@@ -135,8 +136,9 @@ model Meal {
 
   isDeleted Boolean @default(false)
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  cartItems CartItem[]
 
   @@index([providerId])
   @@index([categoryId])
@@ -239,4 +241,33 @@ model RefreshToken {
 
   @@index([userId])
   @@map("refresh_tokens")
+}
+
+model Cart {
+  id     String @id @default(cuid())
+  userId String @unique
+
+  user  User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items CartItem[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("carts")
+}
+
+model CartItem {
+  id       String @id @default(cuid())
+  cartId   String
+  mealId   String
+  quantity Int
+
+  cart Cart @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  meal Meal @relation(fields: [mealId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([cartId, mealId])
+  @@map("cart_items")
 }
