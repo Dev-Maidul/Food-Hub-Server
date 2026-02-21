@@ -23,7 +23,80 @@ const createCart = async (req: Request, res: Response) => {
     });
   }
 };
+const getMyCart = async (req: Request, res: Response) => {
+  try {
+    const userId = req.user?.id;
 
+    const result = await CartService.getMyCart(userId);
+
+    sendResponse(res, {
+      statusCode: 200,
+      success: true,
+      message: "Cart retrieved successfully",
+      data: result,
+    });
+  } catch (error: any) {
+    sendResponse(res, {
+      statusCode: 400,
+      success: false,
+      message: error.message || "Failed to retrieve cart",
+      data: null,
+    });
+  }
+};
+
+const addToCart = async (req: Request, res: Response) => {
+  try {
+    const userId = req.user?.id;
+    const { mealId, quantity } = req.body;
+
+    const result = await CartService.addToCart(userId, mealId, quantity);
+
+    sendResponse(res, {
+      statusCode: 200,
+      success: true,
+      message: "Item added to cart successfully",
+      data: result,
+    });
+  } catch (error: any) {
+    sendResponse(res, {
+      statusCode: 400,
+      success: false,
+      message: error.message || "Failed to add item to cart",
+      data: null,
+    });
+  }
+};
+
+const updateQuantity = async (req: Request, res: Response) => {
+  try {
+    const userId = req.user?.id;
+    const { cartItemId, quantity } = req.body;
+
+    const result = await CartService.updateQuantity(
+      userId,
+      cartItemId,
+      quantity
+    );
+
+    sendResponse(res, {
+      statusCode: 200,
+      success: true,
+      message: "Quantity updated successfully",
+      data: result,
+    });
+  } catch (error: any) {
+    sendResponse(res, {
+      statusCode: 400,
+      success: false,
+      message: error.message || "Failed to update quantity",
+      data: null,
+    });
+  }
+};
 export const CartController = {
   createCart,
+  getMyCart,
+  addToCart,
+  updateQuantity,
 };
