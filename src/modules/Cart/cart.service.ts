@@ -183,9 +183,40 @@ const updateQuantity = async (
 
   return updatedItem;
 };
+
+const removeItem = async (
+  userId: string,
+  cartItemId: string
+) => {
+  // 1️⃣ Find cart item with cart relation
+  const cartItem = await prisma.cartItem.findUnique({
+    where: { id: cartItemId },
+    include: {
+      cart: true,
+    },
+  });
+
+  if (!cartItem) {
+    throw new Error("Cart item not found");
+  }
+
+  // 2️⃣ Ownership check
+  if (cartItem.cart.userId !== userId) {
+    throw new Error("Unauthorized access to cart item");
+  }
+
+  // 3️⃣ Delete item
+  await prisma.cartItem.delete({
+    where: { id: cartItemId },
+  });
+
+  return { deletedId: cartItemId };
+};
+
 export const CartService = {
   createCart,
   getMyCart,
   addToCart,
   updateQuantity,
+  removeItem,
 };

@@ -12,4 +12,9 @@ router.patch(
   auth(UserRole.customer),
   CartController.updateQuantity,
 );
+router.delete(
+  "/items/:cartItemId",
+  auth(UserRole.customer),
+  CartController.removeItem
+);
 export const CartRoutes = router;

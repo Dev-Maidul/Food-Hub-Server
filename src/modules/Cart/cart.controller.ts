@@ -94,9 +94,32 @@ const updateQuantity = async (req: Request, res: Response) => {
     });
   }
 };
+const removeItem = async (req: Request, res: Response) => {
+  try {
+    const userId = req.user?.id;
+    const { cartItemId } = req.params;
+
+    const result = await CartService.removeItem(userId, cartItemId as string);
+
+    sendResponse(res, {
+      statusCode: 200,
+      success: true,
+      message: "Item removed from cart successfully",
+      data: result,
+    });
+  } catch (error: any) {
+    sendResponse(res, {
+      statusCode: 400,
+      success: false,
+      message: error.message || "Failed to remove item",
+      data: null,
+    });
+  }
+};
 export const CartController = {
   createCart,
   getMyCart,
   addToCart,
   updateQuantity,
+  removeItem
 };
