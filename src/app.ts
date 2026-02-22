@@ -6,6 +6,7 @@ import { ProviderProfileRoutes } from './modules/ProviderProfile/providerProfile
 import { MealRoutes } from './modules/Meal/meal.route';
 import { CartRoutes } from './modules/Cart/cart.route';
 import { OrderRoutes } from './modules/Order/order.route';
+import { AdminRoutes } from './modules/Admin/admin.route';
 
 
 const app: Application = express();
@@ -24,6 +25,7 @@ app.use('/api/provider/meals',MealRoutes)
 app.use('/api/meals',MealRoutes)
 app.use('/api/cart',CartRoutes)
 app.use("/api/orders", OrderRoutes);
+app.use("/api/admin", AdminRoutes);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello from Food Hub Server!');
