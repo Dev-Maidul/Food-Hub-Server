@@ -95,6 +95,8 @@ const approveProvider = async (req: Request, res: Response) => {
   }
 };
 
+
+
 export const ProviderController = {
   createProviderProfile,
   getMyProviderProfile,

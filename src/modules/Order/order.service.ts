@@ -158,9 +158,51 @@ const getOrderById = async (userId: string, orderId: string) => {
 
   return order;
 };
+const getProviderOrders = async (userId: string) => {
+  // 1️⃣ Find provider profile
+  const providerProfile = await prisma.providerProfile.findUnique({
+    where: { userId },
+  });
 
+  if (!providerProfile) {
+    throw new Error("Provider profile not found");
+  }
+
+  // 2️⃣ Fetch orders for this provider
+  const orders = await prisma.order.findMany({
+    where: {
+      providerId: providerProfile.id,
+    },
+    include: {
+      customer: {
+        select: {
+          id: true,
+          name: true,
+          email: true,
+        },
+      },
+      items: {
+        include: {
+          meal: {
+            select: {
+              id: true,
+              name: true,
+              image: true,
+            },
+          },
+        },
+      },
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
+  return orders;
+};
 export const OrderService = {
   checkout,
   getMyOrders,
-  getOrderById
+  getOrderById,
+  getProviderOrders,
 };

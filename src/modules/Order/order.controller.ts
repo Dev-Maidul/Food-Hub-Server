@@ -76,9 +76,30 @@ const getOrderById = async (req: Request, res: Response) => {
     });
   }
 };
+const getProviderOrders = async (req: Request, res: Response) => {
+  try {
+    const userId = req.user.id;
 
+    const result = await OrderService.getProviderOrders(userId);
+
+    sendResponse(res, {
+      statusCode: 200,
+      success: true,
+      message: "Incoming orders retrieved successfully",
+      data: result,
+    });
+  } catch (error: any) {
+    sendResponse(res, {
+      statusCode: 400,
+      success: false,
+      message: error.message || "Failed to retrieve provider orders",
+      data: null,
+    });
+  }
+};
 export const OrderController = {
   checkout,
     getMyOrders,
-    getOrderById
+    getOrderById,
+    getProviderOrders,
 };
