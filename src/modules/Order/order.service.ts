@@ -119,7 +119,48 @@ const getMyOrders = async (userId: string) => {
 
   return orders;
 };
+
+const getOrderById = async (userId: string, orderId: string) => {
+  const order = await prisma.order.findUnique({
+    where: { id: orderId },
+    include: {
+      provider: {
+        select: {
+          id: true,
+          restaurantName: true,
+          address: true,
+          phone: true,
+        },
+      },
+      items: {
+        include: {
+          meal: {
+            select: {
+              id: true,
+              name: true,
+              image: true,
+              description: true,
+            },
+          },
+        },
+      },
+    },
+  });
+
+  if (!order) {
+    throw new Error("Order not found");
+  }
+
+  // 🔒 Ownership check
+  if (order.customerId !== userId) {
+    throw new Error("Unauthorized access to this order");
+  }
+
+  return order;
+};
+
 export const OrderService = {
   checkout,
   getMyOrders,
+  getOrderById
 };
