@@ -46,6 +46,50 @@ const getAllOrders = async (status?: OrderStatus) => {
   return orders;
 };
 
+const getAllUsers = async (query: any) => {
+  const page = Number(query.page) || 1;
+  const limit = Number(query.limit) || 10;
+  const skip = (page - 1) * limit;
+
+  const where: any = {
+    isDeleted: false,
+  };
+
+  // 🔍 Optional role filter
+  if (query.role && Object.values(Role).includes(query.role)) {
+    where.role = query.role;
+  }
+
+  const users = await prisma.user.findMany({
+    where,
+    skip,
+    take: limit,
+    orderBy: {
+      createdAt: "desc",
+    },
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      role: true,
+      status: true,
+      createdAt: true,
+    },
+  });
+
+  const total = await prisma.user.count({ where });
+
+  return {
+    meta: {
+      page,
+      limit,
+      total,
+      totalPages: Math.ceil(total / limit),
+    },
+    data: users,
+  };
+};
+
 
 const updateUserStatus = async (
   userId: string,
@@ -147,6 +191,7 @@ export const AdminService = {
   getAllOrders,
   updateUserStatus,
   getAnalytics,
+  getAllUsers
 };
 
 

@@ -12,4 +12,9 @@ router.patch(
   AdminController.updateUserStatus,
 );
 router.get("/analytics", auth(UserRole.admin), AdminController.getAnalytics);
+router.get(
+  "/users",
+  auth(UserRole.admin),
+  AdminController.getAllUsers
+);
 export const AdminRoutes = router;

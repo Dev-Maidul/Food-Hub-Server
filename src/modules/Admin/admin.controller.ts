@@ -71,8 +71,30 @@ const getAnalytics = async (req: Request, res: Response) => {
   }
 };
 
+const getAllUsers = async (req: Request, res: Response) => {
+  try {
+    const result = await AdminService.getAllUsers(req.query);
+
+    sendResponse(res, {
+      statusCode: 200,
+      success: true,
+      message: "Users retrieved successfully",
+      data: result,
+    });
+  } catch (error: any) {
+    sendResponse(res, {
+      statusCode: 400,
+      success: false,
+      message: error.message || "Failed to retrieve users",
+      data: null,
+    });
+  }
+};
+
 export const AdminController = {
   getAllOrders,
   updateUserStatus,
   getAnalytics,
+  getAllUsers,
 };
+
