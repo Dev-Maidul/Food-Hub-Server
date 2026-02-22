@@ -32,6 +32,29 @@ const checkout = async (req: Request, res: Response) => {
   }
 };
 
+const getMyOrders = async (req: Request, res: Response) => {
+  try {
+    const userId = req.user?.id;
+
+    const result = await OrderService.getMyOrders(userId);
+
+    sendResponse(res, {
+      statusCode: 200,
+      success: true,
+      message: "Orders retrieved successfully",
+      data: result,
+    });
+  } catch (error: any) {
+    sendResponse(res, {
+      statusCode: 400,
+      success: false,
+      message: error.message || "Failed to retrieve orders",
+      data: null,
+    });
+  }
+};
+
 export const OrderController = {
   checkout,
+    getMyOrders,
 };
