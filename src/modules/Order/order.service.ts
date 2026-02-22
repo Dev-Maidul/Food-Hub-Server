@@ -1,3 +1,4 @@
+import { OrderStatus } from "../../../generated/prisma/client";
 import { prisma } from "../../lib/prisma";
 
 const checkout = async (
@@ -200,9 +201,101 @@ const getProviderOrders = async (userId: string) => {
 
   return orders;
 };
+
+
+const allowedTransitions: Record<OrderStatus, OrderStatus[]> = {
+  [OrderStatus.PLACED]: [OrderStatus.PREPARING],
+  [OrderStatus.PREPARING]: [OrderStatus.READY],
+  [OrderStatus.READY]: [OrderStatus.DELIVERED],
+  [OrderStatus.DELIVERED]: [],
+  [OrderStatus.CANCELLED]: [],
+};
+
+const updateOrderStatus = async (
+  userId: string,
+  orderId: string,
+  newStatus: OrderStatus
+) => {
+  // 1️⃣ Find provider profile
+  const providerProfile = await prisma.providerProfile.findUnique({
+    where: { userId },
+  });
+
+  if (!providerProfile) {
+    throw new Error("Provider profile not found");
+  }
+
+  // 2️⃣ Find order
+  const order = await prisma.order.findUnique({
+    where: { id: orderId },
+  });
+
+  if (!order) {
+    throw new Error("Order not found");
+  }
+
+  // 3️⃣ Ownership check
+  if (order.providerId !== providerProfile.id) {
+    throw new Error("Unauthorized to update this order");
+  }
+
+  const currentStatus = order.status;
+
+  // 4️⃣ Transition validation
+  if (!allowedTransitions[currentStatus].includes(newStatus)) {
+    throw new Error(
+      `Cannot change status from ${currentStatus} to ${newStatus}`
+    );
+  }
+
+  // 5️⃣ Update
+  const updatedOrder = await prisma.order.update({
+    where: { id: orderId },
+    data: { status: newStatus },
+  });
+
+  return updatedOrder;
+};
+
+
+const cancelOrder = async (
+  userId: string,
+  orderId: string
+) => {
+  // 1️⃣ Find order
+  const order = await prisma.order.findUnique({
+    where: { id: orderId },
+  });
+
+  if (!order) {
+    throw new Error("Order not found");
+  }
+
+  // 2️⃣ Ownership check
+  if (order.customerId !== userId) {
+    throw new Error("Unauthorized to cancel this order");
+  }
+
+  // 3️⃣ Status validation
+  if (order.status !== OrderStatus.PLACED) {
+    throw new Error(
+      "Order cannot be cancelled at this stage"
+    );
+  }
+
+  // 4️⃣ Update status
+  const updatedOrder = await prisma.order.update({
+    where: { id: orderId },
+    data: { status: OrderStatus.CANCELLED },
+  });
+
+  return updatedOrder;
+};
 export const OrderService = {
   checkout,
   getMyOrders,
   getOrderById,
   getProviderOrders,
+  cancelOrder,
+  updateOrderStatus
 };

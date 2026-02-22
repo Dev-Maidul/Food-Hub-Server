@@ -13,4 +13,14 @@ router.get(
   auth(UserRole.provider),
   OrderController.getProviderOrders,
 );
+router.patch(
+  "/provider/:orderId/status",
+  auth(UserRole.provider),
+  OrderController.updateOrderStatus
+);
+router.patch(
+  "/:orderId/cancel",
+  auth(UserRole.customer),
+  OrderController.cancelOrder
+);
 export const OrderRoutes = router;
