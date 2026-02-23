@@ -1,0 +1,1959 @@
+{
+  "info": {
+    "_postman_id": "fe0cf482-15fb-476a-b7ad-f1d88be222ff",
+    "name": "Food-Hub",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43594529"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Origin",
+                "value": "http://localhost:4000",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john@example12.com\",\n    \"password\": \"StrongPass123!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "database",
+                  "disabled": true
+                },
+                {
+                  "key": "tags",
+                  "value": "database,postgresql",
+                  "disabled": true
+                },
+                {
+                  "key": "isFeatured",
+                  "value": "true",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "DRAFT",
+                  "disabled": true
+                },
+                {
+                  "key": "autherId",
+                  "value": "clt9k3w7q0000xj8a9m2p4abc",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "soryBy",
+                  "value": "taitle",
+                  "disabled": true
+                },
+                {
+                  "key": "sortOrder",
+                  "value": "desc",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Origin",
+                "value": "http://localhost:4000",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    // \"email\": \"admin@gmail.com\",\n    // \"password\": \"Admin@123\"\n    \"email\": \"john@example12.com\",\n    \"password\": \"StrongPass123!\"\n    //Provider\n    // \"email\": \"john@example.com\",\n    // \"password\": \"StrongPass123!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "database",
+                  "disabled": true
+                },
+                {
+                  "key": "tags",
+                  "value": "database,postgresql",
+                  "disabled": true
+                },
+                {
+                  "key": "isFeatured",
+                  "value": "true",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "DRAFT",
+                  "disabled": true
+                },
+                {
+                  "key": "autherId",
+                  "value": "clt9k3w7q0000xj8a9m2p4abc",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "soryBy",
+                  "value": "taitle",
+                  "disabled": true
+                },
+                {
+                  "key": "sortOrder",
+                  "value": "desc",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Create Catetories",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Origin",
+                "value": "http://localhost:4000",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY5b2YzYzAwMDA3cGpzeXJ1dTliZnEiLCJuYW1lIjoiU3VwZXIgQWRtaW4iLCJyb2xlIjoiQURNSU4iLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTc3MTYxNDc3NiwiZXhwIjoxNzcxNzAxMTc2fQ.Vct5AFZiyL0FwG9zqEy_ouW8iAedLbq0RGjMVc2jfas",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Indian Cuisine3\",\n  \"slug\": \"indian-cuisine3\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/admin/categories",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "admin",
+                "categories"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "database",
+                  "disabled": true
+                },
+                {
+                  "key": "tags",
+                  "value": "database,postgresql",
+                  "disabled": true
+                },
+                {
+                  "key": "isFeatured",
+                  "value": "true",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "DRAFT",
+                  "disabled": true
+                },
+                {
+                  "key": "autherId",
+                  "value": "clt9k3w7q0000xj8a9m2p4abc",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "soryBy",
+                  "value": "taitle",
+                  "disabled": true
+                },
+                {
+                  "key": "sortOrder",
+                  "value": "desc",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all categories",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Origin",
+                "value": "http://localhost:4000",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY5b2YzYzAwMDA3cGpzeXJ1dTliZnEiLCJuYW1lIjoiU3VwZXIgQWRtaW4iLCJyb2xlIjoiQURNSU4iLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTc3MTYxNjU2NiwiZXhwIjoxNzcxNzAyOTY2fQ.zsvQwMpetb_JeL3Xfq89c7v8HWLmoTjguZ7PfWABXQU",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/admin/categories",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "admin",
+                "categories"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "database",
+                  "disabled": true
+                },
+                {
+                  "key": "tags",
+                  "value": "database,postgresql",
+                  "disabled": true
+                },
+                {
+                  "key": "isFeatured",
+                  "value": "true",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "DRAFT",
+                  "disabled": true
+                },
+                {
+                  "key": "autherId",
+                  "value": "clt9k3w7q0000xj8a9m2p4abc",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "soryBy",
+                  "value": "taitle",
+                  "disabled": true
+                },
+                {
+                  "key": "sortOrder",
+                  "value": "desc",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update categories",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Origin",
+                "value": "http://localhost:4000",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY5b2YzYzAwMDA3cGpzeXJ1dTliZnEiLCJuYW1lIjoiU3VwZXIgQWRtaW4iLCJyb2xlIjoiQURNSU4iLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTc3MTYxNDc3NiwiZXhwIjoxNzcxNzAxMTc2fQ.Vct5AFZiyL0FwG9zqEy_ouW8iAedLbq0RGjMVc2jfas",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Premium Fast Food3\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/admin/categories/cmlvaliju0000a9jso4hry2zy",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "admin",
+                "categories",
+                "cmlvaliju0000a9jso4hry2zy"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "database",
+                  "disabled": true
+                },
+                {
+                  "key": "tags",
+                  "value": "database,postgresql",
+                  "disabled": true
+                },
+                {
+                  "key": "isFeatured",
+                  "value": "true",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "DRAFT",
+                  "disabled": true
+                },
+                {
+                  "key": "autherId",
+                  "value": "clt9k3w7q0000xj8a9m2p4abc",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "soryBy",
+                  "value": "taitle",
+                  "disabled": true
+                },
+                {
+                  "key": "sortOrder",
+                  "value": "desc",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete categories",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Origin",
+                "value": "http://localhost:4000",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY5b2YzYzAwMDA3cGpzeXJ1dTliZnEiLCJuYW1lIjoiU3VwZXIgQWRtaW4iLCJyb2xlIjoiQURNSU4iLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTc3MTYxNDc3NiwiZXhwIjoxNzcxNzAxMTc2fQ.Vct5AFZiyL0FwG9zqEy_ouW8iAedLbq0RGjMVc2jfas",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/admin/categories/cmlvaliju0000a9jso4hry2zy",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "admin",
+                "categories",
+                "cmlvaliju0000a9jso4hry2zy"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "database",
+                  "disabled": true
+                },
+                {
+                  "key": "tags",
+                  "value": "database,postgresql",
+                  "disabled": true
+                },
+                {
+                  "key": "isFeatured",
+                  "value": "true",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "DRAFT",
+                  "disabled": true
+                },
+                {
+                  "key": "autherId",
+                  "value": "clt9k3w7q0000xj8a9m2p4abc",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "soryBy",
+                  "value": "taitle",
+                  "disabled": true
+                },
+                {
+                  "key": "sortOrder",
+                  "value": "desc",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Providers",
+      "item": [
+        {
+          "name": "Create Provider Profile",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Origin",
+                "value": "http://localhost:4000",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHV0NTBiODAwMDBvbGpzeng2eDZsNWoiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiUFJPVklERVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NzE2MTc5ODgsImV4cCI6MTc3MTcwNDM4OH0.6XWAsMIIMEOvv6DFZrjl9sqEbE4zDK1uxMY5bgL-uLk",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"restaurantName\": \"Spicy House\",\n  \"slug\": \"spicy-house\",\n  \"address\": \"Dhaka, Dhanmondi 27\",\n  \"phone\": \"+8801712345678\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/providers/profile",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "providers",
+                "profile"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "database",
+                  "disabled": true
+                },
+                {
+                  "key": "tags",
+                  "value": "database,postgresql",
+                  "disabled": true
+                },
+                {
+                  "key": "isFeatured",
+                  "value": "true",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "DRAFT",
+                  "disabled": true
+                },
+                {
+                  "key": "autherId",
+                  "value": "clt9k3w7q0000xj8a9m2p4abc",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "soryBy",
+                  "value": "taitle",
+                  "disabled": true
+                },
+                {
+                  "key": "sortOrder",
+                  "value": "desc",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Provider Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHV0NTBiODAwMDBvbGpzeng2eDZsNWoiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiUFJPVklERVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NzE2MTc5ODgsImV4cCI6MTc3MTcwNDM4OH0.6XWAsMIIMEOvv6DFZrjl9sqEbE4zDK1uxMY5bgL-uLk",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/providers/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "providers",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Provider by slug",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY5b2YzYzAwMDA3cGpzeXJ1dTliZnEiLCJuYW1lIjoiU3VwZXIgQWRtaW4iLCJyb2xlIjoiQURNSU4iLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTc3MTYxOTY0MSwiZXhwIjoxNzcxNzA2MDQxfQ.fCoELGfHs0RqyxbBH3ldDX5ivtzQj-8qtoTGbl2jigU",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/providers/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "providers",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin Approved Provider",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY5b2YzYzAwMDA3cGpzeXJ1dTliZnEiLCJuYW1lIjoiU3VwZXIgQWRtaW4iLCJyb2xlIjoiQURNSU4iLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTc3MTYxOTY0MSwiZXhwIjoxNzcxNzA2MDQxfQ.fCoELGfHs0RqyxbBH3ldDX5ivtzQj-8qtoTGbl2jigU",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "PATCH http://localhost:4000/api/admin/providers/cmlut50b80000oljszx6x6l5j/approve",
+              "protocol": "PATCH http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "admin",
+                "providers",
+                "cmlut50b80000oljszx6x6l5j",
+                "approve"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Meal",
+      "item": [
+        {
+          "name": "Create Meal",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHV0NTBiODAwMDBvbGpzeng2eDZsNWoiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiUFJPVklERVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NzE2MTkxMDUsImV4cCI6MTc3MTcwNTUwNX0.gjfO0aSTkq9eYhEj1yZFn7zmNQ5j1YdFKOTE1tvgIsw",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Chicken Burger 2\",\n  \"slug\": \"chicken-burger 2\",\n  \"description\": \"Juicy grilled chicken burger with cheese\",\n  \"price\": 299.99,\n  \"image\": \"https://example.com/burger.jpg\",\n  \"categoryId\": \"cmlva7tqs000086jsagjlpivf\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/provider/meals",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "provider",
+                "meals"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Gell all Meals",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHV0NTBiODAwMDBvbGpzeng2eDZsNWoiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiUFJPVklERVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NzE2MTkxMDUsImV4cCI6MTc3MTcwNTUwNX0.gjfO0aSTkq9eYhEj1yZFn7zmNQ5j1YdFKOTE1tvgIsw",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/meals",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "meals"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Meals by slug",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHV0NTBiODAwMDBvbGpzeng2eDZsNWoiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiUFJPVklERVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NzE2MTkxMDUsImV4cCI6MTc3MTcwNTUwNX0.gjfO0aSTkq9eYhEj1yZFn7zmNQ5j1YdFKOTE1tvgIsw",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Chicken Burger 2\",\n  \"slug\": \"chicken-burger 2\",\n  \"description\": \"Juicy grilled chicken burger with cheese\",\n  \"price\": 299.99,\n  \"image\": \"https://example.com/burger.jpg\",\n  \"categoryId\": \"cmlva7tqs000086jsagjlpivf\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/meals/chicken-burger",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "meals",
+                "chicken-burger"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete meal by ID",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHV0NTBiODAwMDBvbGpzeng2eDZsNWoiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiUFJPVklERVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NzE2MTkxMDUsImV4cCI6MTc3MTcwNTUwNX0.gjfO0aSTkq9eYhEj1yZFn7zmNQ5j1YdFKOTE1tvgIsw",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Chicken Burger 2\",\n  \"slug\": \"chicken-burger 2\",\n  \"description\": \"Juicy grilled chicken burger with cheese\",\n  \"price\": 299.99,\n  \"image\": \"https://example.com/burger.jpg\",\n  \"categoryId\": \"cmlva7tqs000086jsagjlpivf\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/provider/meals/cmlve2krp0000kyjstlwjia30",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "provider",
+                "meals",
+                "cmlve2krp0000kyjstlwjia30"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update meal",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHV0NTBiODAwMDBvbGpzeng2eDZsNWoiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiUFJPVklERVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NzE2MjE5MjAsImV4cCI6MTc3MTcwODMyMH0.qad_ewG0i1Ou6uRy7CCvFTfa-RHcjOGs_oPVziMISqs",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"price\": 349.999,\n    \"description\": \"Updated juicy grilled chicken burger\",\n    \"isAvailable\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/provider/meals/cmlvdqr5c0000cgjs2dydpzsr",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "provider",
+                "meals",
+                "cmlvdqr5c0000cgjs2dydpzsr"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Cart",
+      "item": [
+        {
+          "name": "Add to cart",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Origin",
+                "value": "http://localhost:4000",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY1eHM0ODAwMDBlN2pzMGlud3NlYTUiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiQ1VTVE9NRVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZTEyLmNvbSIsImlhdCI6MTc3MTY4MTAyMCwiZXhwIjoxNzcxNzY3NDIwfQ.ee4Qge0rXO-4o1vcnOioEFO-XhHT73vgNsfMK_Uygi0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mealId\": \"cmlvdqr5c0000cgjs2dydpzsr\",\n  \"quantity\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/cart",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "cart"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "database",
+                  "disabled": true
+                },
+                {
+                  "key": "tags",
+                  "value": "database,postgresql",
+                  "disabled": true
+                },
+                {
+                  "key": "isFeatured",
+                  "value": "true",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "DRAFT",
+                  "disabled": true
+                },
+                {
+                  "key": "autherId",
+                  "value": "clt9k3w7q0000xj8a9m2p4abc",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "soryBy",
+                  "value": "taitle",
+                  "disabled": true
+                },
+                {
+                  "key": "sortOrder",
+                  "value": "desc",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get my cart",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Origin",
+                "value": "http://localhost:4000",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY1eHM0ODAwMDBlN2pzMGlud3NlYTUiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiQ1VTVE9NRVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZTEyLmNvbSIsImlhdCI6MTc3MTY4MTAyMCwiZXhwIjoxNzcxNzY3NDIwfQ.ee4Qge0rXO-4o1vcnOioEFO-XhHT73vgNsfMK_Uygi0",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/cart/my-cart",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "cart",
+                "my-cart"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "database",
+                  "disabled": true
+                },
+                {
+                  "key": "tags",
+                  "value": "database,postgresql",
+                  "disabled": true
+                },
+                {
+                  "key": "isFeatured",
+                  "value": "true",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "DRAFT",
+                  "disabled": true
+                },
+                {
+                  "key": "autherId",
+                  "value": "clt9k3w7q0000xj8a9m2p4abc",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "soryBy",
+                  "value": "taitle",
+                  "disabled": true
+                },
+                {
+                  "key": "sortOrder",
+                  "value": "desc",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add item to cart",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Origin",
+                "value": "http://localhost:4000",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY1eHM0ODAwMDBlN2pzMGlud3NlYTUiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiQ1VTVE9NRVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZTEyLmNvbSIsImlhdCI6MTc3MTY4MTAyMCwiZXhwIjoxNzcxNzY3NDIwfQ.ee4Qge0rXO-4o1vcnOioEFO-XhHT73vgNsfMK_Uygi0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mealId\": \"cmlvdqr5c0000cgjs2dydpzsr\",\n  \"quantity\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/cart/add-item",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "cart",
+                "add-item"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "database",
+                  "disabled": true
+                },
+                {
+                  "key": "tags",
+                  "value": "database,postgresql",
+                  "disabled": true
+                },
+                {
+                  "key": "isFeatured",
+                  "value": "true",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "DRAFT",
+                  "disabled": true
+                },
+                {
+                  "key": "autherId",
+                  "value": "clt9k3w7q0000xj8a9m2p4abc",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "soryBy",
+                  "value": "taitle",
+                  "disabled": true
+                },
+                {
+                  "key": "sortOrder",
+                  "value": "desc",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Qualtity",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Origin",
+                "value": "http://localhost:4000",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY1eHM0ODAwMDBlN2pzMGlud3NlYTUiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiQ1VTVE9NRVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZTEyLmNvbSIsImlhdCI6MTc3MTY4MTAyMCwiZXhwIjoxNzcxNzY3NDIwfQ.ee4Qge0rXO-4o1vcnOioEFO-XhHT73vgNsfMK_Uygi0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cartItemId\": \"cmlwe8yz500009sjsueoztsug\",\n  \"quantity\": 10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/cart/update-quantity",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "cart",
+                "update-quantity"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "database",
+                  "disabled": true
+                },
+                {
+                  "key": "tags",
+                  "value": "database,postgresql",
+                  "disabled": true
+                },
+                {
+                  "key": "isFeatured",
+                  "value": "true",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "DRAFT",
+                  "disabled": true
+                },
+                {
+                  "key": "autherId",
+                  "value": "clt9k3w7q0000xj8a9m2p4abc",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "soryBy",
+                  "value": "taitle",
+                  "disabled": true
+                },
+                {
+                  "key": "sortOrder",
+                  "value": "desc",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete cartItem",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Origin",
+                "value": "http://localhost:4000",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY1eHM0ODAwMDBlN2pzMGlud3NlYTUiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiQ1VTVE9NRVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZTEyLmNvbSIsImlhdCI6MTc3MTY4MTAyMCwiZXhwIjoxNzcxNzY3NDIwfQ.ee4Qge0rXO-4o1vcnOioEFO-XhHT73vgNsfMK_Uygi0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cartItemId\": \"cmlwe8yz500009sjsueoztsug\",\n  \"quantity\": 10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/cart/items/cmlwe8yz500009sjsueoztsug",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "cart",
+                "items",
+                "cmlwe8yz500009sjsueoztsug"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "database",
+                  "disabled": true
+                },
+                {
+                  "key": "tags",
+                  "value": "database,postgresql",
+                  "disabled": true
+                },
+                {
+                  "key": "isFeatured",
+                  "value": "true",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "DRAFT",
+                  "disabled": true
+                },
+                {
+                  "key": "autherId",
+                  "value": "clt9k3w7q0000xj8a9m2p4abc",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "soryBy",
+                  "value": "taitle",
+                  "disabled": true
+                },
+                {
+                  "key": "sortOrder",
+                  "value": "desc",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Clear Item",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Origin",
+                "value": "http://localhost:4000",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY1eHM0ODAwMDBlN2pzMGlud3NlYTUiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiQ1VTVE9NRVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZTEyLmNvbSIsImlhdCI6MTc3MTY4MTAyMCwiZXhwIjoxNzcxNzY3NDIwfQ.ee4Qge0rXO-4o1vcnOioEFO-XhHT73vgNsfMK_Uygi0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cartItemId\": \"cmlwe8yz500009sjsueoztsug\",\n  \"quantity\": 10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/cart/clear",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "cart",
+                "clear"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "database",
+                  "disabled": true
+                },
+                {
+                  "key": "tags",
+                  "value": "database,postgresql",
+                  "disabled": true
+                },
+                {
+                  "key": "isFeatured",
+                  "value": "true",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "DRAFT",
+                  "disabled": true
+                },
+                {
+                  "key": "autherId",
+                  "value": "clt9k3w7q0000xj8a9m2p4abc",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "soryBy",
+                  "value": "taitle",
+                  "disabled": true
+                },
+                {
+                  "key": "sortOrder",
+                  "value": "desc",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Checkout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY1eHM0ODAwMDBlN2pzMGlud3NlYTUiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiQ1VTVE9NRVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZTEyLmNvbSIsImlhdCI6MTc3MTc2NzExMiwiZXhwIjoxNzcxODUzNTEyfQ.Ik4-kRjvP3E95kay1MGdYO6NOe3k85LVgSbEcX-NXuk",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deliveryAddress\": \"Dhaka, Bangladesh\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/orders/checkout",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "orders",
+                "checkout"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get my Orders",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY1eHM0ODAwMDBlN2pzMGlud3NlYTUiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiQ1VTVE9NRVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZTEyLmNvbSIsImlhdCI6MTc3MTc2NzExMiwiZXhwIjoxNzcxODUzNTEyfQ.Ik4-kRjvP3E95kay1MGdYO6NOe3k85LVgSbEcX-NXuk",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deliveryAddress\": \"Dhaka, Bangladesh\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/orders/my-orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "orders",
+                "my-orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get order by id",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY1eHM0ODAwMDBlN2pzMGlud3NlYTUiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiQ1VTVE9NRVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZTEyLmNvbSIsImlhdCI6MTc3MTc2NzExMiwiZXhwIjoxNzcxODUzNTEyfQ.Ik4-kRjvP3E95kay1MGdYO6NOe3k85LVgSbEcX-NXuk",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deliveryAddress\": \"Dhaka, Bangladesh\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/orders/cmlxsgdot0001fqjstlwb3yuv",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "orders",
+                "cmlxsgdot0001fqjstlwb3yuv"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Provider Orders",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHV0NTBiODAwMDBvbGpzeng2eDZsNWoiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiUFJPVklERVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NzE3NjgzNjgsImV4cCI6MTc3MTg1NDc2OH0.NQ-0ZIT6isFolhISN8HE5r2bkwXAfw3glhjK7jjKWIQ",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deliveryAddress\": \"Dhaka, Bangladesh\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/orders/provider/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "orders",
+                "provider",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Provider Status Update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHV0NTBiODAwMDBvbGpzeng2eDZsNWoiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiUFJPVklERVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NzE3NjgzNjgsImV4cCI6MTc3MTg1NDc2OH0.NQ-0ZIT6isFolhISN8HE5r2bkwXAfw3glhjK7jjKWIQ",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"PLACED\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/orders/provider/cmlxsgdot0001fqjstlwb3yuv/status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "orders",
+                "provider",
+                "cmlxsgdot0001fqjstlwb3yuv",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Provider Status Update Copy",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY1eHM0ODAwMDBlN2pzMGlud3NlYTUiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiQ1VTVE9NRVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZTEyLmNvbSIsImlhdCI6MTc3MTc3MTQ3NywiZXhwIjoxNzcxODU3ODc3fQ.pNuGyYkPkUTKzbdvJjggUxk8M3uM3lyfcMWgHzc-tZ0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"CANCEL\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/orders/cmlxsgdot0001fqjstlwb3yuv/cancel",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "orders",
+                "cmlxsgdot0001fqjstlwb3yuv",
+                "cancel"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Get all orders",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY5b2YzYzAwMDA3cGpzeXJ1dTliZnEiLCJuYW1lIjoiU3VwZXIgQWRtaW4iLCJyb2xlIjoiQURNSU4iLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTc3MTc3MjAzMiwiZXhwIjoxNzcxODU4NDMyfQ.e2Ov4q2h9I0BeKNaftEzUgnTR3niTNGsBJ62_oYV2yo",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"CANCEL\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/admin/orders?status=PLACED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "admin",
+                "orders"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "PLACED"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all Users",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY5b2YzYzAwMDA3cGpzeXJ1dTliZnEiLCJuYW1lIjoiU3VwZXIgQWRtaW4iLCJyb2xlIjoiQURNSU4iLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTc3MTc3MjAzMiwiZXhwIjoxNzcxODU4NDMyfQ.e2Ov4q2h9I0BeKNaftEzUgnTR3niTNGsBJ62_oYV2yo",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"CANCEL\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/admin/users?page=2&limit=5",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "admin",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                },
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User status by Admin",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY5b2YzYzAwMDA3cGpzeXJ1dTliZnEiLCJuYW1lIjoiU3VwZXIgQWRtaW4iLCJyb2xlIjoiQURNSU4iLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTc3MTc3MjAzMiwiZXhwIjoxNzcxODU4NDMyfQ.e2Ov4q2h9I0BeKNaftEzUgnTR3niTNGsBJ62_oYV2yo",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"SUSPENDED\"\n}\n// {\n//   \"status\": \"ACTIVE\"\n// }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000 /api/admin/users/cmluvbo8m00001wjs38qaprd9",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000 ",
+              "path": [
+                "api",
+                "admin",
+                "users",
+                "cmluvbo8m00001wjs38qaprd9"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin Analytics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY5b2YzYzAwMDA3cGpzeXJ1dTliZnEiLCJuYW1lIjoiU3VwZXIgQWRtaW4iLCJyb2xlIjoiQURNSU4iLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTc3MTc3MjAzMiwiZXhwIjoxNzcxODU4NDMyfQ.e2Ov4q2h9I0BeKNaftEzUgnTR3niTNGsBJ62_oYV2yo",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/admin/analytics",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "admin",
+                "analytics"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Review",
+      "item": [
+        {
+          "name": "Post Review",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY1eHM0ODAwMDBlN2pzMGlud3NlYTUiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiQ1VTVE9NRVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZTEyLmNvbSIsImlhdCI6MTc3MTc3MzY0MCwiZXhwIjoxNzcxODYwMDQwfQ.uhPCZ7bpUTb66IzgpRGUaPTyqIfBVcuNVzAUFrDwWrk",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"mealId\": \"cmlvdqr5c0000cgjs2dydpzsr\",\n    \"rating\": 5,\n    \"comment\": \"Very delicious!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/reviews",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "reviews"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Review Public",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY5b2YzYzAwMDA3cGpzeXJ1dTliZnEiLCJuYW1lIjoiU3VwZXIgQWRtaW4iLCJyb2xlIjoiQURNSU4iLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTc3MTc3MjAzMiwiZXhwIjoxNzcxODU4NDMyfQ.e2Ov4q2h9I0BeKNaftEzUgnTR3niTNGsBJ62_oYV2yo",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/reviews/meal/cmlvdqr5c0000cgjs2dydpzsr",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "reviews",
+                "meal",
+                "cmlvdqr5c0000cgjs2dydpzsr"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY1eHM0ODAwMDBlN2pzMGlud3NlYTUiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiQ1VTVE9NRVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZTEyLmNvbSIsImlhdCI6MTc3MTc3MzY0MCwiZXhwIjoxNzcxODYwMDQwfQ.uhPCZ7bpUTb66IzgpRGUaPTyqIfBVcuNVzAUFrDwWrk",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/users/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "users",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtbHY1eHM0ODAwMDBlN2pzMGlud3NlYTUiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiQ1VTVE9NRVIiLCJzdGF0dXMiOiJBQ1RJVkUiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZTEyLmNvbSIsImlhdCI6MTc3MTc3MzY0MCwiZXhwIjoxNzcxODYwMDQwfQ.uhPCZ7bpUTb66IzgpRGUaPTyqIfBVcuNVzAUFrDwWrk",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"MR Customer\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/users/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "users",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
