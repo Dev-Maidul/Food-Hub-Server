@@ -1,5 +1,5 @@
 node_modules
-.env*
+<<<<<<< HEAD
 dist
 api
 .vercel
@@ -7,3 +7,7 @@ api
 /generated/prisma
 
 /generated/prisma
+=======
+dist
+>>>>>>> 12c406d800755276ebafeafea08eef31879660c5
+config.bat
