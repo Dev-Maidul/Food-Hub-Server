@@ -1,4 +1,5 @@
 node_modules
+<<<<<<< HEAD
 .env*
 dist
 api
@@ -7,3 +8,7 @@ api
 /generated/prisma
 
 /generated/prisma
+=======
+dist
+.env
+>>>>>>> 12c406d800755276ebafeafea08eef31879660c5

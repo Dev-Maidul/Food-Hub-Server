@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
@@ -42,4 +43,25 @@
     "moduleDetection": "force",
     "skipLibCheck": true
   }
+=======
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "rootDir": ".",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "generated/prisma"
+  ]
+>>>>>>> 12c406d800755276ebafeafea08eef31879660c5
 }

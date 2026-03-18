@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Server } from "http";
 import app from "./app";
 import { prisma } from "./utils/prisma";
@@ -33,3 +34,19 @@ async function connection() {
   });
 }
 connection();
+=======
+import app from './app';
+import config from './config';
+
+async function main() {
+  try {
+    app.listen(config.port, () => {
+      console.log(`Example app listening on port ${config.port}`);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+main();
+>>>>>>> 12c406d800755276ebafeafea08eef31879660c5
